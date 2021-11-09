@@ -180,6 +180,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1384,6 +1385,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      forestDecoration_0_10: -6252994928509019914
+      forestDecoration_0_24: -1563555938909550586
+      forestDecoration_0_9: 972979038183153277
+      forestDecoration_0_49: -4087552124063124710
+      forestDecoration_0_8: -9025281534160707991
+      forestDecoration_0_0: 1297318740886409757
+      forestDecoration_0_4: -2185378780304455284
+      forestDecoration_0_43: -8080891717104290734
+      forestDecoration_0_51: -8778556041724774445
+      forestDecoration_0_46: -1573185656214149599
+      forestDecoration_0_11: 7365103747032463448
+      forestDecoration_0_6: 3254675700908404882
+      forestDecoration_0_35: 8667082438441081852
+      forestDecoration_0_13: -8194063745785617496
+      forestDecoration_0_30: -3888998501743313023
+      forestDecoration_0_15: 4074230167798351799
+      forestDecoration_0_27: 9177544549766990703
+      forestDecoration_0_20: 4342297206354579261
+      forestDecoration_0_45: 3966687666832477830
+      forestDecoration_0_19: -4544749288849313240
+      forestDecoration_0_2: 2195515082337598459
+      forestDecoration_0_48: 4698549866993974367
+      forestDecoration_0_47: -4587743837369343563
+      forestDecoration_0_32: 7274298326052104468
+      forestDecoration_0_33: 9049576881004976937
+      forestDecoration_0_39: 2287276213443919668
+      forestDecoration_0_5: -7584758138790152935
+      forestDecoration_0_7: 1851819007406180082
+      forestDecoration_0_34: 3021204748587311681
+      forestDecoration_0_17: 6536349552736614938
+      forestDecoration_0_28: -7192824776340965161
+      forestDecoration_0_38: 2306150226011984371
+      forestDecoration_0_18: -7744486166342394482
+      forestDecoration_0_50: 1472599807456897153
+      forestDecoration_0_14: 7192856367018466798
+      forestDecoration_0_23: 4936443468445985291
+      forestDecoration_0_21: 3642503718653927278
+      forestDecoration_0_31: -3572973056178439701
+      forestDecoration_0_12: 4025728975754961275
+      forestDecoration_0_26: -5003879903968615713
+      forestDecoration_0_16: 3855434477402227878
+      forestDecoration_0_42: -717411679835014448
+      forestDecoration_0_40: 4731813431018646959
+      forestDecoration_0_29: 2360879060993601639
+      forestDecoration_0_44: -3266403544577521415
+      forestDecoration_0_3: -155105753004947165
+      forestDecoration_0_25: 896149588500250336
+      forestDecoration_0_1: -7984909339434588517
+      forestDecoration_0_36: 3419201637420700652
+      forestDecoration_0_41: -1655346751156417634
+      forestDecoration_0_37: 6767825749163579074
+      forestDecoration_0_22: -4109847586734349071
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
