@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 418f95e33292a874d8527f787d2b5fd5
+  m_SerializeEntries:
+  - m_GUID: 1a15079723a191344a9831c4a70cdf27
+    m_Address: Assets/FvD - TD Unity/Spritesheet/Fruits/Apple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 19905bd9b9d86094fb67b2ae2cc0ae26
+    m_Address: Assets/FvD - TD Unity/Animations/Apple_Back.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a60b896de786bb2429589689ae3cf137
+    m_Address: Assets/FvD - TD Unity/Animations/Apple_Side.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0905c45af3a305549a9f5ebb26894c83
+    m_Address: Assets/FvD - TD Unity/Animations/Apple_Front.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e56ee21d9f326124d80d9ab173b7ce17, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a7c0b146d9bb53d409ebb9b06f208792, type: 2}
+    - {fileID: 11400000, guid: fc533af065fa6d743a9b215ab244f2ca, type: 2}
