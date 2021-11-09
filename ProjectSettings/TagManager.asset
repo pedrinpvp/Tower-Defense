@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Torre
+    uniqueID: 3251212919
+    locked: 0

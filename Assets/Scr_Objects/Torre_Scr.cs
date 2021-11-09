@@ -13,7 +13,8 @@ public class Torre_Scr : ScriptableObject
     public float cadencia = 1f;
     [Header("Quanto maior, mais dificil acertar um critico")]
     public int critChance = 10;
-
+    [Header("Quanto maior mais rapido")]
+    public float velocidadeBala = 8;
     private void OnValidate()
     {
         nome = name;
