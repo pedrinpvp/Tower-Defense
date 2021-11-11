@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Obstaculo
+  - Caminho
+  - Entradas
+  - Saidas
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Torre
     uniqueID: 3251212919
+    locked: 0
+  - name: Balas
+    uniqueID: 1494750817
     locked: 0
