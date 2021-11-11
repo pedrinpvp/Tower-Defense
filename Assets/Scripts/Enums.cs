@@ -11,4 +11,15 @@ public class Enums : MonoBehaviour
         esquerda,
         direita
     }
+
+    public enum TipoDeDano 
+    {
+        Fisico,
+        Magico
+    }
+    public enum TipoDeMunicao
+    {
+        Area,
+        Direto
+    }
 }

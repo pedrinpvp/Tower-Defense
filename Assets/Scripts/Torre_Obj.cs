@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torre_Atividade : MonoBehaviour
+public class Torre_Obj : MonoBehaviour
 {
     public Torre_Scr stats;
-    private Torre_Anima animLoader;
+    public Bala_Obj balaPrefab;
+    private Torre_Anim animLoader;
     private CircleCollider2D colisorCirculo;
     public List<Transform> inimigos = new List<Transform>();
     public Transform inimigoMaisPerto;
     [SerializeField] private float alcance;
+    public bool cooldown;
+
     void Start()
     {
         colisorCirculo = GetComponent<CircleCollider2D>();
-        animLoader = GetComponent<Torre_Anima>();
+        animLoader = GetComponent<Torre_Anim>();
         colisorCirculo.radius = alcance/2;
     }
 
@@ -23,8 +26,13 @@ public class Torre_Atividade : MonoBehaviour
         if (!inimigos.Contains(inimigoMaisPerto))
         {
             inimigoMaisPerto = EncontrarMaisPerto();
+            if (inimigoMaisPerto != null)
+                StartCoroutine(AtirarNoInimigo());
         }
-        if (inimigoMaisPerto != null) MoverComInimigo();
+        if (inimigoMaisPerto != null)
+        {
+            MoverComInimigo();
+        }
     }
 
 
@@ -39,7 +47,7 @@ public class Torre_Atividade : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Inimigo>())
+        if (collision.gameObject.GetComponent<Mob_Obj>())
         {
             if (!inimigos.Contains(collision.transform))
             {
@@ -50,7 +58,7 @@ public class Torre_Atividade : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Inimigo>())
+        if (collision.gameObject.GetComponent<Mob_Obj>())
         {
             if (inimigos.Contains(collision.transform))
             {
@@ -91,6 +99,23 @@ public class Torre_Atividade : MonoBehaviour
         //Ta Daaa
         SelecionarAnimacaoPorAngulo(angle);
         //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+    }
+
+    IEnumerator AtirarNoInimigo()
+    {
+        var inimigoAtual = inimigoMaisPerto;
+        if (!cooldown)
+        {
+            var bala = balaPrefab;
+            bala.Init(stats.bala, inimigoMaisPerto, stats.velocidadeBala, stats.dano);
+            bala.gameObject.name = stats.bala.name;
+            Instantiate(bala, transform.position, transform.rotation);
+            cooldown = true;
+            yield return new WaitForSeconds(1 / stats.cadencia);
+        }
+        else yield return new WaitForSeconds(1 / stats.cadencia / 2);
+        cooldown = false;
+        if (inimigoAtual == inimigoMaisPerto) StartCoroutine(AtirarNoInimigo());
     }
 
     private void SelecionarAnimacaoPorAngulo(float angle)

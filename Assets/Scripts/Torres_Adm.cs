@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TorresAdm : MonoBehaviour
+public class Torres_Adm : MonoBehaviour
 {
     [SerializeField]
     private Grid grid;

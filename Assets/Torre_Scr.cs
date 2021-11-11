@@ -15,6 +15,9 @@ public class Torre_Scr : ScriptableObject
     public int critChance = 10;
     [Header("Quanto maior mais rapido")]
     public float velocidadeBala = 8;
+    [Header("Bala utilizada.")]
+    public Bala_Scr bala;
+
     private void OnValidate()
     {
         nome = name;
