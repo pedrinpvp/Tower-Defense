@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sorvete
   m_EditorClassIdentifier: 
   danoAoCastelo: 3
-  vida: 15
-  velocidade: 2
-  entrada: 0
+  vida: 10
+  velocidade: 5
+  animation: {fileID: 9100000, guid: e16b65baaf9148d4eb6303221f32c5be, type: 2}
