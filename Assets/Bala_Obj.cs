@@ -34,19 +34,28 @@ public class Bala_Obj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_target == null) Destroy(gameObject);
+
         if (_stats.tipoDeMunicao == Enums.TipoDeMunicao.Direto) ShootTarget();
         else if (_stats.tipoDeMunicao == Enums.TipoDeMunicao.Area) ShootArea();
-        
     }
 
     void ShootTarget()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _velocidade * Time.deltaTime);
-        if (Vector3.Distance(transform.position, _target.transform.position) < 0.001f)
+        try
         {
-            _target.GetComponent<Mob_Obj>().vida -= _dano;
-            Destroy(gameObject);
+            transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _velocidade * Time.deltaTime);
+            if (Vector3.Distance(transform.position, _target.transform.position) < 0.001f)
+            {
+                _target.GetComponent<Mob_Obj>().vida -= _dano;
+                Destroy(gameObject);
+            }
         }
+        catch (MissingReferenceException)
+        {
+            Destroy(gameObject);
+        } 
+        
     }
 
     private void ShootArea()

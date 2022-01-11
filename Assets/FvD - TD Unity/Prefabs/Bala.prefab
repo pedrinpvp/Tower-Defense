@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 9323c0422a29b1942aeb9a52e616d69a, type: 2}
   _target: {fileID: 0}
-  staticLocation: {x: -0.46974176, y: 1.6250001, z: 1.3481702e-15}
+  staticLocation: {x: 1.538654, y: 1.6250001, z: 9.604356e-16}
   _dano: 3
   _velocidade: 8
 --- !u!212 &5369900356520581874
