@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1178f2f34f519af4794fe84b428f368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: e440217c0492594498fd1962c0e5813f, type: 2}
-  vida: 15
+  _stats: {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+  vida: 10
 --- !u!61 &5840804754965549136
 BoxCollider2D:
   m_ObjectHideFlags: 0
