@@ -47,3 +47,6 @@ TagManager:
   - name: Balas
     uniqueID: 1494750817
     locked: 0
+  - name: Canvas
+    uniqueID: 1759537259
+    locked: 0
