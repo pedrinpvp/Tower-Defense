@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 9323c0422a29b1942aeb9a52e616d69a, type: 2}
   _target: {fileID: 0}
-  staticLocation: {x: -0.71777236, y: 1.3750001, z: 0}
+  staticLocation: {x: 1.538654, y: 1.6250001, z: 9.604356e-16}
   _dano: 3
   _velocidade: 8
 --- !u!212 &5369900356520581874
@@ -92,15 +92,15 @@ SpriteRenderer:
   m_SortingLayerID: 1494750817
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2a4a4557809d5c146ad8c499dc4c09f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &6322210887534048818

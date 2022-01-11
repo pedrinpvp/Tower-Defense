@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1043754377
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7293598183456022363, guid: 1a15079723a191344a9831c4a70cdf27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1495429476197793224
@@ -137,6 +137,7 @@ MonoBehaviour:
   inimigos: []
   inimigoMaisPerto: {fileID: 0}
   alcance: 6
+  cooldown: 0
 --- !u!58 &1495429476197793227
 CircleCollider2D:
   m_ObjectHideFlags: 0

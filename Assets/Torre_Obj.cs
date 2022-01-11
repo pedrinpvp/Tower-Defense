@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Torre_Obj : MonoBehaviour
@@ -23,16 +24,25 @@ public class Torre_Obj : MonoBehaviour
 
     void Update()
     {
-        if (!inimigos.Contains(inimigoMaisPerto))
+        if (inimigos.Any())
         {
-            inimigoMaisPerto = EncontrarMaisPerto();
+            //if (inimigoMaisPerto != null) Debug.Log(gameObject.name + " " + inimigoMaisPerto.name);
+            //foreach (var inimigo in inimigos)
+            //{
+            //    Debug.Log(gameObject.name + " " + inimigo.name);
+            //}
+            if (!inimigos.Contains(inimigoMaisPerto))
+            {
+                inimigoMaisPerto = EncontrarMaisPerto();
+                if (inimigoMaisPerto != null)
+                    StartCoroutine(AtirarNoInimigo());
+            }
             if (inimigoMaisPerto != null)
-                StartCoroutine(AtirarNoInimigo());
+            {
+                MoverComInimigo();
+            }
         }
-        if (inimigoMaisPerto != null)
-        {
-            MoverComInimigo();
-        }
+        
     }
 
 
@@ -71,18 +81,28 @@ public class Torre_Obj : MonoBehaviour
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
-        foreach (Transform potentialTarget in inimigos)
-        {
-            Vector3 directionToTarget = potentialTarget.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialTarget;
-            }
-        }
 
-        return bestTarget;
+        try
+        {
+            foreach (Transform potentialTarget in inimigos)
+            {
+                Vector3 directionToTarget = potentialTarget.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if (dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    bestTarget = potentialTarget;
+                }
+            }
+
+            return bestTarget;
+        }
+        catch (Exception)
+        {
+            return null;
+            //throw;
+        }
+        
     }
 
     private void MoverComInimigo()
@@ -106,16 +126,16 @@ public class Torre_Obj : MonoBehaviour
         var inimigoAtual = inimigoMaisPerto;
         if (!cooldown)
         {
-            var bala = balaPrefab;
-            bala.Init(stats.bala, inimigoMaisPerto, stats.velocidadeBala, stats.dano);
+            Debug.Log("Atirar");
+            var bala = Instantiate(balaPrefab, transform.position, transform.rotation);
+            if (inimigoMaisPerto != null) bala.Init(stats.bala, inimigoMaisPerto, stats.velocidadeBala, stats.dano);
             bala.gameObject.name = stats.bala.name;
-            Instantiate(bala, transform.position, transform.rotation);
             cooldown = true;
             yield return new WaitForSeconds(1 / stats.cadencia);
         }
         else yield return new WaitForSeconds(1 / stats.cadencia / 2);
         cooldown = false;
-        if (inimigoAtual == inimigoMaisPerto) StartCoroutine(AtirarNoInimigo());
+        if (inimigoAtual == inimigoMaisPerto && inimigoMaisPerto != null) StartCoroutine(AtirarNoInimigo());
     }
 
     private void SelecionarAnimacaoPorAngulo(float angle)
