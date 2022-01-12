@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastleStats : MonoBehaviour
+public class VidaConfig : MonoBehaviour
 {
     public int vidaMax;
     public int vidaAtual;
