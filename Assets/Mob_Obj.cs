@@ -7,16 +7,16 @@ using UnityEngine;
 public class Mob_Obj : MonoBehaviour
 {
     public Mob_Scr _stats;
-    public VidaConfig vidaConfigCastelo;
+    public CastleStats vidaConfigCastelo;
     public Transform _entrada;
-    public VidaConfig minhaVida;
+    public CastleStats minhaVida;
     public VidaMedidor medidor;
     public int vida;
     public void Init(Mob_Scr stats, int entrada)
     {
         Debug.Log("INITTT");
-        vidaConfigCastelo = FindObjectOfType<CasteloStats>().GetComponent<VidaConfig>();
-        minhaVida = GetComponent<VidaConfig>();
+        vidaConfigCastelo = FindObjectOfType<CastleStats>();
+        minhaVida = GetComponent<CastleStats>();
         medidor = GetComponent<VidaMedidor>();
         _stats = stats;
         vida = _stats.vida;

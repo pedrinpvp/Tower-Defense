@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class VidaMedidor : MonoBehaviour
 {
-    public VidaConfig vidaConfig;
+    public CastleStats vidaConfig;
     public Slider vidaSlider;
     public TextMeshProUGUI vidaText;
     public bool configurado;
