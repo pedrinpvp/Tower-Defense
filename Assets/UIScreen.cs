@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,12 @@ public class UIScreen : MonoBehaviour
 {
     public Button FirstSelection;
     public GameObject objectThatCalled;
+    public Transform screenToOpen;
+
     // Start is called before the first frame update
     void Start()
     {
+        screenToOpen = transform.GetChild(0);
         CloseScreen();
     }
 
@@ -29,12 +33,13 @@ public class UIScreen : MonoBehaviour
     public virtual void OpenScreen()
     {
         Debug.LogWarning($"OPEN {name} + {gameObject.name}");
-        transform.GetChild(0).gameObject.SetActive(true);
+        screenToOpen.gameObject.SetActive(true);
     }
 
     public virtual void CloseScreen()
     {
         Debug.LogWarning($"CLOSE {name} + {gameObject.name}");
-        transform.GetChild(0).gameObject.SetActive(false);
+        screenToOpen.gameObject.SetActive(false);
     }
+
 }

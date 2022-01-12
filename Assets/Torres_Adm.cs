@@ -2,26 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
-public class Torres_Adm : MonoBehaviour
+public class Torres_Adm : SingletonInstance<Torres_Adm>
 {
     [SerializeField]
     private Grid grid;
     [SerializeField]
-    private Tilemap torres = new Tilemap();
+    private Tilemap torresTileMap = new Tilemap();
     [SerializeField]
-    private Torre_Obj torreTest;
-    [SerializeField]
-    private Canvas canvasScreen;
+    private List<Torre_Obj> inventarioDeTorres = new List<Torre_Obj>();
     [SerializeField]
     private GameObject torresHolder;
     private Vector3Int previousMousePos = new Vector3Int();
+    [SerializeField]
+    private UI_TowerSelection towerSelection;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,24 +38,35 @@ public class Torres_Adm : MonoBehaviour
             Vector3Int mousePos = GetMousePosition();
             if (!mousePos.Equals(previousMousePos))
             {
-                Debug.Log(torres.GetTile(mousePos));
-                //torres.SetTile(previousMousePos, null); // Remove old hoverTile
+                Debug.Log(torresTileMap.GetTile(mousePos));
+                //torres.SetTile(previousMousePos, null); 
+                //TODO: Remove old hoverTile
                 //torres.SetTile(mousePos, hoverTile);
-                if (torres.GetTile(mousePos) != null) ColocarTorre(grid.GetCellCenterWorld(mousePos));
+                if (torresTileMap.GetTile(mousePos) != null)
+                {
+                    towerSelection.StorePosition(grid.GetCellCenterWorld(mousePos));
+                    towerSelection.OpenScreen();
+                }
                 previousMousePos = mousePos;
             }
         }
     }
 
-    private void ColocarTorre(Vector3 pos)
+    public void ColocarTorre(Vector3 pos, Torre_Obj torre)
     {
         Vector3 newPos = new Vector3(pos.x, pos.y + 0.275f);
-        Instantiate(torreTest, newPos, Quaternion.identity, torresHolder.transform);
+        //TODO: Remove TorreTest
+        Instantiate(torre, newPos, Quaternion.identity, torresHolder.transform);
     }
 
     private Vector3Int GetMousePosition()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return grid.WorldToCell(mouseWorldPos);
+    }
+
+    public List<Torre_Obj> GetTorresInventory()
+    {
+        return inventarioDeTorres;
     }
 }
