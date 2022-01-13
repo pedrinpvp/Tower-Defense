@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3085631356771965362}
-  - component: {fileID: 3085631356771965361}
+  - component: {fileID: 8853928850581374724}
   - component: {fileID: 7223726243666938668}
   m_Layer: 5
   m_Name: TowerSelection
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchoredPosition: {x: -107.06, y: -16.25}
   m_SizeDelta: {x: 120.97, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3085631356771965361
+--- !u!114 &8853928850581374724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3085631356771965363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: d676f60941d89474989bb2a8d4284e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -56,12 +56,23 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 30, y: 30}
-  m_Spacing: {x: 40, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  radius: 30
+  clockwise: 0
+  minAngle: 0
+  maxAngle: 360
+  startAngle: 90
+  customRebuild: 0
+  startElementAngle: 0
+  rotateElements: 0
+  expandChildWidth: 0
+  childWidthFactor: 1
+  maxWidthFactor: 360
+  childWidthFromRadius: 0
+  childWidthRadiusFactor: 0.01
+  expandChildHeight: 0
+  childHeight: 100
+  childHeightFromRadius: 0
+  childHeightRadiusFactor: 0.0025
 --- !u!114 &7223726243666938668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,5 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f0c83799d32d241b5437a57f420cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storedMousPos: {x: 0, y: 0, z: 0}
   buyTowerButton: {fileID: 0}
   buttonsInScene: []

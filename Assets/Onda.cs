@@ -6,6 +6,7 @@ using UnityEngine;
 public class Onda : MonoBehaviour
 {
     public List<InimigosPorSaida> inimigosPorSaida;
+    public float tempoProximaWave;
     public Onda()
     {
         inimigosPorSaida = new List<InimigosPorSaida>();
@@ -17,7 +18,7 @@ public class InimigosPorSaida
 {
     public Saida Saida;
     public List<Mob_Scr> Mobs;
-    public float tempo;
+    public float tempoMobs;
     public int entrada;
     public InimigosPorSaida()
     {

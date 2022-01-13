@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class BuyTowerButton : Button
 {
@@ -13,14 +14,14 @@ public class BuyTowerButton : Button
         onClick.AddListener(BuyTower);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowAnim()
     {
-        
+        //TODO: DoTween
     }
 
     public void BuyTower()
     {
-        TowerSelection.GetInstance().Select(towerToBuy);
+        if(CasteloStats.GetInstance().CanAfford(towerToBuy.stats.custo))
+            TowerSelection.GetInstance().Select(towerToBuy);
     }
 }

@@ -5,16 +5,6 @@ using UnityEngine;
 public class UI_TowerSelection : UIScreen
 {
     private Vector3 storedMousPos;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     internal void StorePosition(Vector3 mousePos)
     {

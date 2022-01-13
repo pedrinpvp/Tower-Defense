@@ -4,28 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ondas_Adm : MonoBehaviour
+public class Ondas_Adm : SingletonInstance<Ondas_Adm>
 {
     public Mob_Obj inimigoPrefab;
+    public GameManager gameManager;
     public List<Onda> ondas = new List<Onda>();
     public Button chamarWave;
+    public WaveControlUI waveControlUI;
     public int turno = 0;
+    public float tempoAteProximaWave = 0f;
+    public float maxTempoAteWave = 0f;
     public bool aguardando;
     public bool venceu;
     void Start()
     {
-        StartCoroutine(CriarInimigosDaOnda());
-        chamarWave.onClick.AddListener(ChamarProximaWave);
+        //TODO: Remover aguardando e usar apenas o GameManager.State == GameState.WaitingForNextWave
+        gameManager = GameManager.GetInstance();
+        aguardando = true;
+        chamarWave.onClick.AddListener(delegate { gameManager.UpdateGameState(GameState.StartWave); });
     }
 
     void Update()
     {
+        if (!venceu)
+        {
+            //TODO: Check if the button is working without this.
+            //chamarWave.gameObject.SetActive(aguardando);
+        }
         if (aguardando && !venceu)
         {
-            if (turno + 1 >= ondas.Count)
-                PassarDeFase();
+            if (turno + 1 > ondas.Count)
+                RegistrarVitória();
+            if (turno != 0) ContagemAteProximaWave();
         }
-        if (!venceu) chamarWave.gameObject.SetActive(aguardando);
     }
 
     private void OnValidate()
@@ -57,27 +68,45 @@ public class Ondas_Adm : MonoBehaviour
                     inimigoNovo.Init(mob, onda.entrada);
                     inimigoNovo.gameObject.name = mob.name;
                     inimigoNovo.InitializeCanva();
-                    yield return new WaitForSeconds(onda.tempo);
+                    yield return new WaitForSeconds(onda.tempoMobs);
                     v++;
                 }
             }
             v = 0;
         }
+        maxTempoAteWave = ondas[turno].tempoProximaWave;
         aguardando = true;
+        turno++;
+        gameManager.UpdateGameState(GameState.WaitNextWave);
+        waveControlUI.SayHi();
+        waveControlUI.SetMinAndMaxValues(tempoAteProximaWave, maxTempoAteWave);
     }
-    private void ChamarProximaWave()
+
+    public void ChamarProximaWave()
     {
         if (aguardando)
         {
-            Debug.Log("CHAMAR WAVE");
-            turno++;
+            Debug.Log("Chamar wave " + turno);
             aguardando = false;
             StartCoroutine(CriarInimigosDaOnda());
         }
     }
-    private void PassarDeFase()
+
+    private void ContagemAteProximaWave()
     {
-        Debug.Log("VOCE VENCEU!");
+        tempoAteProximaWave += Time.deltaTime;
+        if(tempoAteProximaWave >= maxTempoAteWave)
+        {
+            GameManager.GetInstance().UpdateGameState(GameState.StartWave);
+            tempoAteProximaWave = 0;
+            maxTempoAteWave = 0;
+        }
+        waveControlUI.UpdateValue(tempoAteProximaWave);
+    }
+
+    private void RegistrarVitória()
+    {
+        gameManager.UpdateGameState(GameState.Victory);
         venceu = true;
     }
 }

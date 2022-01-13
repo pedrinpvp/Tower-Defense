@@ -56,6 +56,6 @@ public class Mob_Obj : MonoBehaviour
 
     private void CausarDano()
     {
-        if (minhaVida != null) minhaVida.vidaAtual -= _stats.danoAoCastelo;
+        if (vidaConfigCastelo != null) vidaConfigCastelo.vidaAtual -= _stats.danoAoCastelo;
     }
 }
