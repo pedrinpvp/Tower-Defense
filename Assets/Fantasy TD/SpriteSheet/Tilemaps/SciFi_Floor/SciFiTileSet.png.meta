@@ -4966,7 +4966,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       SciFiTileSet_137: 154022757
-      SciFiTileSet_194: -712816560
+      SciFiTileSet_20: -1622176183
       SciFiTileSet_33: -2036756376
       SciFiTileSet_219: 643390099
       SciFiTileSet_19: -2127508811
@@ -5107,19 +5107,19 @@ TextureImporter:
       SciFiTileSet_85: 1481941651
       SciFiTileSet_177: -1757428881
       SciFiTileSet_114: 415093208
-      SciFiTileSet_93: -924670732
       SciFiTileSet_115: 1876827284
-      SciFiTileSet_184: 521439167
+      SciFiTileSet_93: -924670732
       SciFiTileSet_198: 1872558121
+      SciFiTileSet_204: -1486614089
       SciFiTileSet_1: -1736189224
-      SciFiTileSet_166: -1730385870
+      SciFiTileSet_184: 521439167
       SciFiTileSet_188: 548099002
       SciFiTileSet_23: -988672514
-      SciFiTileSet_74: -152899309
+      SciFiTileSet_166: -1730385870
       SciFiTileSet_95: -872917520
       SciFiTileSet_89: -153436601
       SciFiTileSet_52: -1104475925
-      SciFiTileSet_204: -1486614089
+      SciFiTileSet_74: -152899309
       SciFiTileSet_227: 1575627626
       SciFiTileSet_111: 367577422
       SciFiTileSet_59: 28059648
@@ -5195,7 +5195,7 @@ TextureImporter:
       SciFiTileSet_132: 673135759
       SciFiTileSet_66: 168657197
       SciFiTileSet_75: 608558566
-      SciFiTileSet_20: -1622176183
+      SciFiTileSet_194: -712816560
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

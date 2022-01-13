@@ -41,11 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Chao
+    uniqueID: 200396741
+    locked: 0
+  - name: AcimaDoChao
+    uniqueID: 3234231585
+    locked: 0
   - name: Torre
     uniqueID: 3251212919
     locked: 0
   - name: Balas
     uniqueID: 1494750817
+    locked: 0
+  - name: Paredes
+    uniqueID: 1531325815
     locked: 0
   - name: Canvas
     uniqueID: 1759537259
