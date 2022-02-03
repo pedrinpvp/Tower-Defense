@@ -34,7 +34,7 @@ public class CasteloStats : SingletonInstance<CasteloStats>
 
     public void UpdateText()
     {
-        dinheiroText.text = _dinheiroAtual.ToString();
+        if (dinheiroText) dinheiroText.text = _dinheiroAtual.ToString();
     }
 
     public bool CanAfford(int cost)
