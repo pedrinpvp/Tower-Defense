@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CasteloStats : SingletonInstance<CasteloStats>
+public class CasteloStats : Singleton<CasteloStats>
 {
     private VidaConfig vidaCastelo;
     private int _dinheiroAtual;
-    public int dinheiroMax;
+    public int dinheiroIni;
 
     [HideInInspector]
     public int dinheiroAtual { 
@@ -20,7 +20,7 @@ public class CasteloStats : SingletonInstance<CasteloStats>
     void Start()
     {
         vidaCastelo = GetComponent<VidaConfig>();
-        dinheiroAtual = dinheiroMax;
+        dinheiroAtual = dinheiroIni;
     }
 
     // Update is called once per frame
@@ -45,5 +45,10 @@ public class CasteloStats : SingletonInstance<CasteloStats>
             return true; 
         }
         return false;
+    }
+
+    public void AddSeeds(int amount)
+    {
+        dinheiroAtual += amount;
     }
 }

@@ -11,10 +11,12 @@ public class Mob_Obj : MonoBehaviour
     public Transform _entrada;
     public VidaConfig minhaVida;
     public VidaMedidor medidor;
+    private ResourcesManager resourcesManager;
     public int vida;
     public void Init(Mob_Scr stats, int entrada)
     {
         Debug.Log("INITTT");
+        resourcesManager = FindObjectOfType<ResourcesManager>().GetComponent<ResourcesManager>();
         vidaConfigCastelo = FindObjectOfType<CasteloStats>().GetComponent<VidaConfig>();
         minhaVida = GetComponent<VidaConfig>();
         medidor = GetComponent<VidaMedidor>();
@@ -29,6 +31,20 @@ public class Mob_Obj : MonoBehaviour
         GetComponent<AILerp>().speed = FormatarVelocidade(_stats.velocidade);
         GetComponent<Animator>().runtimeAnimatorController = _stats.animation;
         //Debug.LogWarning(_stats.name);
+        IdentificarPosicaoReferenteAEntrada();
+    }
+
+    public void IdentificarPosicaoReferenteAEntrada()
+    {
+        //Estou na direita, e a entrada está à minha esquerda
+        if(_entrada.position.x < transform.position.x)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else //Estou à esquerda, e a entrada está à minha direita
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     public void InitializeCanva()
@@ -45,12 +61,24 @@ public class Mob_Obj : MonoBehaviour
         if (_stats != null)
         {
             if (minhaVida != null) minhaVida.vidaAtual = vida;
-            if (vida <= 0) Destroy(gameObject);
+            if (vida <= 0)
+            {
+                SpawnRecompensa(); Destroy(gameObject);
+            }
+            
         }
         if (Vector3.Distance(transform.position, _entrada.position) < 0.001f)
         {
             CausarDano();
             Destroy(gameObject);
+        }
+    }
+
+    private void SpawnRecompensa()
+    {
+        for (int i = 0; i < _stats.recompensa; i++)
+        {
+            Instantiate(_stats.recurso,transform.position, Quaternion.identity, resourcesManager.transform);
         }
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ondas_Adm : SingletonInstance<Ondas_Adm>
+public class Ondas_Adm : Singleton<Ondas_Adm>
 {
     public Mob_Obj inimigoPrefab;
     public GameManager gameManager;
@@ -78,8 +78,11 @@ public class Ondas_Adm : SingletonInstance<Ondas_Adm>
         aguardando = true;
         turno++;
         gameManager.UpdateGameState(GameState.WaitNextWave);
-        waveControlUI.SayHi();
-        waveControlUI.SetMinAndMaxValues(tempoAteProximaWave, maxTempoAteWave);
+        if (waveControlUI)
+        {
+            waveControlUI.SayHi();
+            waveControlUI.SetMinAndMaxValues(tempoAteProximaWave, maxTempoAteWave);
+        }
     }
 
     public void ChamarProximaWave()
@@ -101,7 +104,8 @@ public class Ondas_Adm : SingletonInstance<Ondas_Adm>
             tempoAteProximaWave = 0;
             maxTempoAteWave = 0;
         }
-        waveControlUI.UpdateValue(tempoAteProximaWave);
+        if (waveControlUI)
+            waveControlUI.UpdateValue(tempoAteProximaWave);
     }
 
     private void RegistrarVitória()

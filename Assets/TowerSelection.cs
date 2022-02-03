@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TowerSelection : SingletonInstance<TowerSelection>
+public class TowerSelection : Singleton<TowerSelection>
 {
     [SerializeField]
     public Vector3 storedMousPos;

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaveControlUI : SingletonInstance<WaveControlUI>
+public class WaveControlUI : Singleton<WaveControlUI>
 {
     [SerializeField]
     private Slider slider;
