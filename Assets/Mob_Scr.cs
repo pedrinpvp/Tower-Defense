@@ -9,10 +9,12 @@ public class Mob_Scr : ScriptableObject
     private string nome;
     public int danoAoCastelo = 3;
     public int vida = 10;
+    public int recompensa = 1;
     [Header("Quantos metros anda por segundo")]
     public float velocidade = 3;
     [Header("Imagem do inimigo")]
     public AnimatorController animation;
+
     private void OnValidate()
     {
         nome = name;
