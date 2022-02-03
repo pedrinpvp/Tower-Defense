@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danoAoCastelo: 3
   vida: 20
+  recompensa: 2
   velocidade: 3
   animation: {fileID: 9100000, guid: 71520415ba9d5bb47a85f1d010f8e93f, type: 2}
+  recurso: {fileID: 3874829238360703392, guid: a0f93bf35b0f1684a8fe06303da7fc49, type: 3}

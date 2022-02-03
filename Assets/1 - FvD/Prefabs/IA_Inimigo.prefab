@@ -514,6 +514,7 @@ MonoBehaviour:
   _entrada: {fileID: 0}
   minhaVida: {fileID: 0}
   medidor: {fileID: 0}
+  semente: {fileID: 3874829238360703420, guid: a0f93bf35b0f1684a8fe06303da7fc49, type: 3}
   vida: 10
 --- !u!61 &5840804754965549136
 BoxCollider2D:
