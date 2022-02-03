@@ -1,5 +1,5 @@
 using UnityEngine;
-public class SingletonInstance<T> : MonoBehaviour where T : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
 	protected static T instance = null;
 
