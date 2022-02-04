@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1043754377
-  m_SortingLayer: 3
+  m_SortingLayerID: -1060735711
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7ee8308056efce545b68d7a9bbbc9122, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 3874829238360703392}
   - component: {fileID: 7307188784056043684}
   m_Layer: 11
-  m_Name: Semente
+  m_Name: Recurso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce36f8233ea5d74aa0ad82cb9019b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
 --- !u!50 &7307188784056043684
 Rigidbody2D:
   serializedVersion: 4

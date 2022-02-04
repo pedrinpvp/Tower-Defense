@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67daf650962e3b4fbef055ead31fe61, type: 3}
-  m_Name: Apple
+  m_Script: {fileID: 11500000, guid: 335564cde6bb985419e6688790179fde, type: 3}
+  m_Name: Sem2
   m_EditorClassIdentifier: 
-  dano: 3
-  custo: 5
-  alcance: 12
-  cadencia: 1
-  critChance: 10
-  velocidadeBala: 8
-  bala: {fileID: 11400000, guid: 9323c0422a29b1942aeb9a52e616d69a, type: 2}
+  amount: 3
+  sprite: {fileID: 21300000, guid: 7ee8308056efce545b68d7a9bbbc9122, type: 3}
