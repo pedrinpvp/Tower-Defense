@@ -34,6 +34,11 @@ public class ClicksManager : Singleton<ClicksManager>
         return grid.WorldToCell(mouseWorldPos);
     }
 
+    public Vector3 GetMousePosition()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
     public bool DoesCollideInLayer(LayerMask layer, out GameObject obj)
     {
         if (!Clicked()) { obj = null; return false; }

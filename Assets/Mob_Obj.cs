@@ -4,36 +4,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mob_Obj : MonoBehaviour
+public class Mob_Obj : Character
 {
-    public Mob_Scr _stats;
     public VidaConfig vidaConfigCastelo;
     public Transform _entrada;
-    public VidaConfig minhaVida;
-    public VidaMedidor medidor;
     private ResourcesManager resourcesManager;
-    public int vida;
-    public void Init(Mob_Scr stats, int entrada)
+
+    public override void Init(Mob_Scr stats, int entrada)
     {
-        //Debug.Log("INITTT");
+        base.Init(stats, entrada);
         resourcesManager = FindObjectOfType<ResourcesManager>().GetComponent<ResourcesManager>();
         vidaConfigCastelo = FindObjectOfType<CasteloStats>().GetComponent<VidaConfig>();
-        minhaVida = GetComponent<VidaConfig>();
-        medidor = GetComponent<VidaMedidor>();
-        _stats = stats;
-        vida = _stats.vida;
-        minhaVida.vidaAtual = vida;
-        minhaVida.vidaMax = vida;
-        medidor.vidaConfig = minhaVida;
-        medidor.follow = gameObject;
         GetComponent<AIDestinationSetter>().target = FindObjectOfType<Entrada>().transform.parent.GetChild(entrada);
         _entrada = FindObjectOfType<Entrada>().transform.parent.GetChild(entrada);
-        GetComponent<AILerp>().speed = FormatarVelocidade(_stats.velocidade);
-        GetComponent<Animator>().runtimeAnimatorController = _stats.animation;
-        //Debug.LogWarning(_stats.name);
         IdentificarPosicaoReferenteAEntrada();
     }
-
     public void IdentificarPosicaoReferenteAEntrada()
     {
         //Estou na direita, e a entrada está à minha esquerda
@@ -46,31 +31,18 @@ public class Mob_Obj : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
     }
-
-    public void InitializeCanva()
-    {
-        medidor.Initialize();
-    }
-
-    float FormatarVelocidade(float velocidade)
-    {
-        return velocidade /= 4; 
-    }
     private void Update()
     {
-        if (_stats != null)
-        {
-            if (minhaVida != null) minhaVida.vidaAtual = vida;
-            if (vida <= 0)
-            {
-                SpawnRecompensa(); Destroy(gameObject);
-            }
-            
-        }
         if (Vector3.Distance(transform.position, _entrada.position) < 0.001f)
         {
-            CausarDano(); Destroy(gameObject);
+            CausarDanoAoCastelo(); Destroy(gameObject);
         }
+    }
+
+    internal override void NaDestruicao()
+    {
+        base.NaDestruicao();
+        SpawnRecompensa();
     }
 
     private void SpawnRecompensa()
@@ -78,7 +50,7 @@ public class Mob_Obj : MonoBehaviour
         resourcesManager.mobDestroyed.Invoke(_stats.recompensa, transform.position);
     }
 
-    private void CausarDano()
+    private void CausarDanoAoCastelo()
     {
         if (vidaConfigCastelo != null) vidaConfigCastelo.vidaAtual -= _stats.danoAoCastelo;
     }
