@@ -9,7 +9,13 @@ public class Character : MonoBehaviour
     public VidaConfig minhaVida;
     public VidaMedidor medidor;
     public int vida;
+    //TODO: Init overloading is a poor solution
     public virtual void Init(Mob_Scr stats, int entrada)
+    {
+        Init(stats);
+    }
+
+    public virtual void Init(Mob_Scr stats)
     {
         minhaVida = GetComponent<VidaConfig>();
         medidor = GetComponent<VidaMedidor>();
@@ -21,6 +27,7 @@ public class Character : MonoBehaviour
         medidor.follow = gameObject;
         GetComponent<AILerp>().speed = FormatarVelocidade(_stats.velocidade);
         GetComponent<Animator>().runtimeAnimatorController = _stats.animation;
+        Debug.Log(GetComponent<AILerp>().speed);
     }
 
     public void InitializeCanva()

@@ -14,6 +14,7 @@ public class Hero_Obj : Character
     // Start is called before the first frame update
     void Start()
     {
+        Init(_stats);
         clicksManager = ClicksManager.GetInstance();
         destinationSetter = GetComponent<AIDestinationSetter>();
     }
@@ -22,10 +23,10 @@ public class Hero_Obj : Character
     void Update()
     {
         if (!clicksManager.Clicked()) return;
-        if (!temp) { temp = new GameObject(); temp.name = "hero destination"; temp.transform.parent = transform;}
-        Vector3 mouseWorldPos = clicksManager.GetMousePosition();
+        if (!temp) { temp = new GameObject(); temp.name = "hero destination";}
         if (clicksManager.DoesCollideInLayer(layer))
         {
+            Vector3 mouseWorldPos = clicksManager.GetMousePosition();
             Debug.Log($"goto {mouseWorldPos}");
             temp.transform.position = mouseWorldPos;
             destinationSetter.target = temp.transform;
