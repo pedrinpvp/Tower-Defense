@@ -57,7 +57,7 @@ public class Torres_Adm : Singleton<Torres_Adm>
 
     public void ColocarTorre(Vector3 pos, Torre_Obj torre)
     {
-        Vector3 newPos = new Vector3(pos.x, pos.y + 0.275f);
+        Vector3 newPos = new Vector3(pos.x, pos.y);
         Instantiate(torre, newPos, Quaternion.identity, torresHolder.transform);
     }
 

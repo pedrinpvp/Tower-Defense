@@ -9,6 +9,7 @@ public class Torre_Obj : MonoBehaviour
     public Torre_Scr stats;
     public Bala_Obj balaPrefab;
     private Torre_Anim animLoader;
+    private GameObject spriteHolder;
     private CircleCollider2D colisorCirculo;
     public List<Transform> inimigos = new List<Transform>();
     public Transform inimigoMaisPerto;
@@ -17,8 +18,9 @@ public class Torre_Obj : MonoBehaviour
 
     void Start()
     {
+        spriteHolder = GetComponentInChildren<SpriteRenderer>().gameObject;
         colisorCirculo = GetComponent<CircleCollider2D>();
-        animLoader = GetComponent<Torre_Anim>();
+        animLoader = spriteHolder.GetComponent<Torre_Anim>();
         colisorCirculo.radius = alcance/2;
     }
 
@@ -39,7 +41,7 @@ public class Torre_Obj : MonoBehaviour
             }
             if (inimigoMaisPerto != null)
             {
-                MoverComInimigo();
+                animLoader.MoverComInimigo(inimigoMaisPerto);
             }
         }
         
@@ -105,21 +107,6 @@ public class Torre_Obj : MonoBehaviour
         
     }
 
-    private void MoverComInimigo()
-    {
-        //Get the Screen positions of the object
-        Vector2 positionOnScreen = transform.position;
-
-        //Get the Screen position of the mouse
-        Vector2 inimigoOnScreen = inimigoMaisPerto.position;
-
-        //Get the angle between the points
-        float angle = relative(inimigoOnScreen);
-
-        //Ta Daaa
-        SelecionarAnimacaoPorAngulo(angle);
-        //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-    }
 
     IEnumerator AtirarNoInimigo()
     {
@@ -127,7 +114,7 @@ public class Torre_Obj : MonoBehaviour
         if (!cooldown)
         {
             Debug.Log("Atirar");
-            var bala = Instantiate(balaPrefab, transform.position, transform.rotation);
+            var bala = Instantiate(balaPrefab, spriteHolder.transform.position, spriteHolder.transform.rotation);
             if (inimigoMaisPerto != null) bala.Init(stats.bala, inimigoMaisPerto, stats.velocidadeBala, stats.dano);
             bala.gameObject.name = stats.bala.name;
             cooldown = true;
@@ -138,46 +125,7 @@ public class Torre_Obj : MonoBehaviour
         if (inimigoAtual == inimigoMaisPerto && inimigoMaisPerto != null) StartCoroutine(AtirarNoInimigo());
     }
 
-    private void SelecionarAnimacaoPorAngulo(float angle)
-    {
-        if (angle > 0)
-        {
-            if (angle < 30)
-            {
-                animLoader.MudarAnimacao(Enums.Direcoes.direita);
-            }
-            else if (angle < 120 && angle > 60)
-            {
-                animLoader.MudarAnimacao(Enums.Direcoes.cima);
-            }
-            else if (angle > 150)
-            {
-                animLoader.MudarAnimacao(Enums.Direcoes.esquerda);
-            }
-        }
-        else if (angle < 0)
-        {
-            if (angle > -30)
-            {
-                animLoader.MudarAnimacao(Enums.Direcoes.direita);
-            }
-            else if (angle > -120 && angle < -60)
-            {
-                animLoader.MudarAnimacao(Enums.Direcoes.baixo);
-            }
-            else if (angle < -150)
-            {
-                animLoader.MudarAnimacao(Enums.Direcoes.esquerda);
-            }
-        }
-    }
-
-    float relative(Vector2 target)
-    {
-        Vector3 relative = transform.InverseTransformPoint(target);
-        return Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg;
-        
-    }
+    
     //float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
     //{
     //    Vector2 direction = a - b;

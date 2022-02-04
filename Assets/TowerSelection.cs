@@ -12,6 +12,7 @@ public class TowerSelection : Singleton<TowerSelection>
     private BuyTowerButton buyTowerButton;
     [SerializeField]
     private List<BuyTowerButton> buttonsInScene = new List<BuyTowerButton>();
+    [SerializeField]
     private List<Torre_Obj> torres = new List<Torre_Obj>();
     // Start is called before the first frame update
     void Start()

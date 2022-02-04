@@ -11,6 +11,7 @@ public class BuyTowerButton : Button
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(index + " " + towerToBuy.name);
         onClick.AddListener(BuyTower);
     }
 
@@ -21,6 +22,7 @@ public class BuyTowerButton : Button
 
     public void BuyTower()
     {
+        print("BUY TOWER");
         if(CasteloStats.GetInstance().CanAfford(towerToBuy.stats.custo))
             TowerSelection.GetInstance().Select(towerToBuy);
     }
