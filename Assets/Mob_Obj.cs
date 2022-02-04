@@ -15,7 +15,7 @@ public class Mob_Obj : MonoBehaviour
     public int vida;
     public void Init(Mob_Scr stats, int entrada)
     {
-        Debug.Log("INITTT");
+        //Debug.Log("INITTT");
         resourcesManager = FindObjectOfType<ResourcesManager>().GetComponent<ResourcesManager>();
         vidaConfigCastelo = FindObjectOfType<CasteloStats>().GetComponent<VidaConfig>();
         minhaVida = GetComponent<VidaConfig>();
@@ -69,17 +69,13 @@ public class Mob_Obj : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, _entrada.position) < 0.001f)
         {
-            CausarDano();
-            Destroy(gameObject);
+            CausarDano(); Destroy(gameObject);
         }
     }
 
     private void SpawnRecompensa()
     {
-        for (int i = 0; i < _stats.recompensa; i++)
-        {
-            Instantiate(_stats.recurso,transform.position, Quaternion.identity, resourcesManager.transform);
-        }
+        resourcesManager.mobDestroyed.Invoke(_stats.recompensa, transform.position);
     }
 
     private void CausarDano()

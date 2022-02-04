@@ -14,20 +14,26 @@ public class Resource : MonoBehaviour
     Vector2 velocity = Vector2.zero;
     bool isFollowing = false;
     FinalPointResources finalPoint;
-
-    public int amount;
+    Resource_Scr _stats;
     ResourcesManager manager;
-    private void Start()
+    bool canUpdate = false;
+    public void Init(Resource_Scr stats)
     {
+        Debug.Log("RESOURCE INITIALIZED");
+        _stats = stats;
         rb = GetComponent<Rigidbody2D>();
         float randx = Random.Range(-1f, 1f)/3;
         float randy = Random.Range(-1f, 1f)/3;
         targetPoint = transform.position + new Vector3(randx, randy, transform.position.z);
         FindObjectOfType<ResourcesManager>().clickedResource.AddListener(ReceiveCommand);
+        GetComponentInChildren<SpriteRenderer>().sprite = _stats.sprite;
+        gameObject.name = _stats.name;
+        canUpdate = true;
     }
 
     private void Update()
     {
+        if (!canUpdate) return;
         if (isFollowing)
         {
             transform.position = Vector2.Lerp(transform.position, finalPoint.transform.position, Time.deltaTime * minModifier);
@@ -68,7 +74,7 @@ public class Resource : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<FinalPointResources>())
         {
-            CasteloStats.GetInstance().AddSeeds(amount);
+            CasteloStats.GetInstance().AddSeeds(_stats.amount);
             Destroy(gameObject);
         }
     }

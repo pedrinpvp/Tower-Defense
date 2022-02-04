@@ -14,7 +14,6 @@ public class Mob_Scr : ScriptableObject
     public float velocidade = 3;
     [Header("Imagem do inimigo")]
     public AnimatorController animation;
-    public Resource recurso;
 
     private void OnValidate()
     {
