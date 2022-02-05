@@ -28,8 +28,7 @@ public class Character : MonoBehaviour
         medidor.vidaConfig = minhaVida;
         medidor.follow = gameObject;
         GetComponent<AILerp>().speed = FormatarVelocidade(_stats.velocidade);
-        GetComponent<Animator>().runtimeAnimatorController = _stats.animation;
-        Debug.Log(GetComponent<AILerp>().speed);
+        GetComponent<Char_Anim>().Init(_stats.idle, _stats.run, _stats.shoot, _stats.death);
     }
 
     public void InitializeCanva()

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ec01777ef8fd14fb62f54a1bc37df5, type: 3}
   m_Name: Mob2
   m_EditorClassIdentifier: 
-  danoAoCastelo: 3
   vida: 109
-  recompensa: 1
+  dano: 3
   velocidade: 7
-  animation: {fileID: 9100000, guid: 92a1a2e75635c0f469c8be543c6a6ddf, type: 2}
-  recurso: {fileID: 3874829238360703392, guid: a0f93bf35b0f1684a8fe06303da7fc49, type: 3}
+  idle: {fileID: 7400000, guid: cf8a69218ec952a47b999b5dcf8a00df, type: 2}
+  run: {fileID: 7400000, guid: e5b12b9343dbf194d870bffbf15b63dd, type: 2}
+  shoot: {fileID: 7400000, guid: ffe077271b75bba49948e50df182884c, type: 2}
+  death: {fileID: 7400000, guid: 366a9658fcb4921498e245769741c806, type: 2}
+  danoAoCastelo: 3
+  recompensa: 1

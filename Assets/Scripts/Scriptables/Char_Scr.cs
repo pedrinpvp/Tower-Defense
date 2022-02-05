@@ -12,8 +12,11 @@ public class Char_Scr : ScriptableObject
     [Header("Quantos metros anda por segundo")]
     public float velocidade = 3;
 
-    [Header("Imagem do inimigo")]
-    public AnimatorController animation;
+    [Header("Animacoes do personagem")]
+    public AnimationClip idle;
+    public AnimationClip run;
+    public AnimationClip shoot;
+    public AnimationClip death;
 
     private void OnValidate()
     {
