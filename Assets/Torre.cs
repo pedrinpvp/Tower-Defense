@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Torre_Obj : MonoBehaviour
+public class Torre : MonoBehaviour
 {
     public Torre_Scr stats;
-    public Bala_Obj balaPrefab;
+    public Bala balaPrefab;
     private Torre_Anim animLoader;
     private GameObject spriteHolder;
     private CircleCollider2D colisorCirculo;
@@ -59,7 +59,7 @@ public class Torre_Obj : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Mob_Obj>())
+        if (collision.gameObject.GetComponent<Mob>())
         {
             if (!inimigos.Contains(collision.transform))
             {
@@ -70,7 +70,7 @@ public class Torre_Obj : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Mob_Obj>())
+        if (collision.gameObject.GetComponent<Mob>())
         {
             if (inimigos.Contains(collision.transform))
             {

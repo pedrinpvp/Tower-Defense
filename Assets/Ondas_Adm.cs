@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Ondas_Adm : Singleton<Ondas_Adm>
 {
-    public Mob_Obj inimigoPrefab;
+    public Mob inimigoPrefab;
     public GameManager gameManager;
     public List<Onda> ondas = new List<Onda>();
     public Button chamarWave;

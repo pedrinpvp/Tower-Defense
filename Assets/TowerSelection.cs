@@ -13,7 +13,7 @@ public class TowerSelection : Singleton<TowerSelection>
     [SerializeField]
     private List<BuyTowerButton> buttonsInScene = new List<BuyTowerButton>();
     [SerializeField]
-    private List<Torre_Obj> torres = new List<Torre_Obj>();
+    private List<Torre> torres = new List<Torre>();
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class TowerSelection : Singleton<TowerSelection>
 
     }
 
-    private void GenerateButonsForScene(List<Torre_Obj> torre_Objs)
+    private void GenerateButonsForScene(List<Torre> torre_Objs)
     {
         for (int i = 0; i < torre_Objs.Count; i++)
         {
@@ -49,7 +49,7 @@ public class TowerSelection : Singleton<TowerSelection>
 
     }
 
-    public void Select(Torre_Obj torre_Obj)
+    public void Select(Torre torre_Obj)
     {
         Torres_Adm.GetInstance().ColocarTorre(storedMousPos, torre_Obj);
     }

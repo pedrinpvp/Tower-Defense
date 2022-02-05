@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class Bala_Obj : MonoBehaviour
+public class Bala : MonoBehaviour
 {
     public Bala_Scr _stats;
     public GameObject _target;
@@ -47,7 +47,7 @@ public class Bala_Obj : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _velocidade * Time.deltaTime);
             if (Vector3.Distance(transform.position, _target.transform.position) < 0.001f)
             {
-                _target.GetComponent<Mob_Obj>().vida -= _dano;
+                _target.GetComponent<Mob>().vida -= _dano;
                 Destroy(gameObject);
             }
         }
@@ -63,7 +63,7 @@ public class Bala_Obj : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, staticLocation, _velocidade * Time.deltaTime);
         if (Vector3.Distance(transform.position, staticLocation) < 0.001f)
         {
-            _target.GetComponent<Mob_Obj>().vida -= _dano;
+            _target.GetComponent<Mob>().vida -= _dano;
             Destroy(gameObject);
         }
     }

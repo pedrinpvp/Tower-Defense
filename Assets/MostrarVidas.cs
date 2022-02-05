@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MostrarVidas : MonoBehaviour
 {
-    public Torre_Obj torre;
+    public Torre torre;
     public Slider slider;
     public TextMeshProUGUI text;
     // Start is called before the first frame update

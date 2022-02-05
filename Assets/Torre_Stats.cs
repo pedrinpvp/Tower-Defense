@@ -47,7 +47,7 @@ public class Torre_Stats : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Mob_Obj>())
+        if (collision.gameObject.GetComponent<Mob>())
         {
             if (inimigos.Contains(collision.transform) == false)
             {
@@ -58,7 +58,7 @@ public class Torre_Stats : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Mob_Obj>())
+        if (collision.gameObject.GetComponent<Mob>())
         {
             if (inimigos.Contains(collision.transform))
             {

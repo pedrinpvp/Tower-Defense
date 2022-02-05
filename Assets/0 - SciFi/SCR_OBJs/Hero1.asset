@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ec01777ef8fd14fb62f54a1bc37df5, type: 3}
-  m_Name: Brigadeiro
+  m_Script: {fileID: 11500000, guid: 8621163d32d7b404788493cf574da780, type: 3}
+  m_Name: Hero1
   m_EditorClassIdentifier: 
-  vida: 20
-  dano: 3
-  velocidade: 3
-  animation: {fileID: 9100000, guid: 71520415ba9d5bb47a85f1d010f8e93f, type: 2}
-  danoAoCastelo: 3
-  recompensa: 3
+  vida: 30
+  dano: 4
+  velocidade: 5
+  animation: {fileID: 9100000, guid: c3f3da6a32cb9a344b111b6d8fba8f15, type: 2}

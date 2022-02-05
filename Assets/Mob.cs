@@ -4,32 +4,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mob_Obj : Character
+public class Mob : Character
 {
     public VidaConfig vidaConfigCastelo;
     public Transform _entrada;
     private ResourcesManager resourcesManager;
+    private Mob_Scr stats;
 
-    public override void Init(Mob_Scr stats, int entrada)
+    public override void Init(Char_Scr stats, int entrada)
     {
         base.Init(stats, entrada);
+        stats = _stats as Mob_Scr;
         resourcesManager = FindObjectOfType<ResourcesManager>().GetComponent<ResourcesManager>();
         vidaConfigCastelo = FindObjectOfType<CasteloStats>().GetComponent<VidaConfig>();
         GetComponent<AIDestinationSetter>().target = FindObjectOfType<Entrada>().transform.parent.GetChild(entrada);
         _entrada = FindObjectOfType<Entrada>().transform.parent.GetChild(entrada);
-        IdentificarPosicaoReferenteAEntrada();
-    }
-    public void IdentificarPosicaoReferenteAEntrada()
-    {
-        //Estou na direita, e a entrada está à minha esquerda
-        if(_entrada.position.x < transform.position.x)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else //Estou à esquerda, e a entrada está à minha direita
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
+        FliparDeAcordoComTarget(_entrada);
     }
     private void Update()
     {
@@ -47,11 +37,11 @@ public class Mob_Obj : Character
 
     private void SpawnRecompensa()
     {
-        resourcesManager.mobDestroyed.Invoke(_stats.recompensa, transform.position);
+        resourcesManager.mobDestroyed.Invoke(stats.recompensa, transform.position);
     }
 
     private void CausarDanoAoCastelo()
     {
-        if (vidaConfigCastelo != null) vidaConfigCastelo.vidaAtual -= _stats.danoAoCastelo;
+        if (vidaConfigCastelo != null) vidaConfigCastelo.vidaAtual -= stats.danoAoCastelo;
     }
 }

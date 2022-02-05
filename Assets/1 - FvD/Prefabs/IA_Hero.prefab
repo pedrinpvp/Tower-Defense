@@ -426,10 +426,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 4
   autoRepath:
-    mode: 1
-    interval: 1
-    sensitivity: 10
-    maximumInterval: 2
+    mode: 2
+    interval: 2
+    sensitivity: 20
+    maximumInterval: 0.5
     visualizeSensitivity: 0
   canMove: 1
   speed: 0.5
@@ -468,10 +468,10 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 1
   autoRepath:
-    mode: 2
-    interval: 0.5
+    mode: 1
+    interval: 3
     sensitivity: 20
-    maximumInterval: 2
+    maximumInterval: 5
     visualizeSensitivity: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
@@ -587,7 +587,7 @@ Animator:
   m_GameObject: {fileID: 5840804754965549487}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3f3da6a32cb9a344b111b6d8fba8f15, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -670,6 +670,9 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 4224
+  layersToAvoid:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6510160899067569235
 GameObject:
   m_ObjectHideFlags: 0

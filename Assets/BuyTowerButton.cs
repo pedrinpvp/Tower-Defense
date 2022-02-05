@@ -7,7 +7,7 @@ using DG.Tweening;
 public class BuyTowerButton : Button
 {
     public int index;
-    public Torre_Obj towerToBuy;
+    public Torre towerToBuy;
     // Start is called before the first frame update
     void Start()
     {

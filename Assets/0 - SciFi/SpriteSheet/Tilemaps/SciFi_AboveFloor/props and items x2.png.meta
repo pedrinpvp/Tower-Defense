@@ -1247,9 +1247,13 @@ TextureImporter:
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 10, y: 10, z: 10, w: 10}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -17, y: -14}
+        - {x: -17, y: 20}
+        - {x: 17, y: 20}
+        - {x: 17, y: -14}
       tessellationDetail: 0
       bones: []
       spriteID: 5dd2ef45e6855c442b9c71de21101715
@@ -2908,18 +2912,19 @@ TextureImporter:
       props and items x2_24: 1833601335
       props and items x2_134: 1255304039
       props and items x2_42: -1944108164
+      props and items x2_2: -1696747047
       props and items x2_97: 918735011
       props and items x2_66: 929653246
-      props and items x2_78: -1781533611
-      props and items x2_2: -1696747047
-      props and items x2_19: -1599382668
+      props and items x2_38: -1471421314
       props and items x2_94: -576509630
+      props and items x2_78: -1781533611
       props and items x2_72: -2139735191
       props and items x2_13: -1562727908
-      props and items x2_38: -1471421314
       props and items x2_57: -1231575429
-      props and items x2_6: 1981059590
       props and items x2_40: -47764709
+      props and items x2_6: 1981059590
+      props and items x2_19: -1599382668
+      props and items x2_30: -19755327
       props and items x2_98: 433256801
       props and items x2_71: 1293586306
       props and items x2_137: -60627796
@@ -2929,7 +2934,6 @@ TextureImporter:
       props and items x2_1: 1633895066
       props and items x2_89: -710952897
       props and items x2_120: 729980732
-      props and items x2_30: -19755327
       props and items x2_133: -1692618760
       props and items x2_105: -1436050025
       props and items x2_18: -812345242

@@ -12,7 +12,7 @@ public class Torres_Adm : Singleton<Torres_Adm>
     [SerializeField]
     private Tilemap torresTileMap = new Tilemap();
     [SerializeField]
-    private List<Torre_Obj> inventarioDeTorres = new List<Torre_Obj>();
+    private List<Torre> inventarioDeTorres = new List<Torre>();
     [SerializeField]
     private GameObject torresHolder;
     private Vector3Int previousMousePos = new Vector3Int();
@@ -55,7 +55,7 @@ public class Torres_Adm : Singleton<Torres_Adm>
         previousMousePos = mousePos;
     }
 
-    public void ColocarTorre(Vector3 pos, Torre_Obj torre)
+    public void ColocarTorre(Vector3 pos, Torre torre)
     {
         Vector3 newPos = new Vector3(pos.x, pos.y);
         Instantiate(torre, newPos, Quaternion.identity, torresHolder.transform);
@@ -63,7 +63,7 @@ public class Torres_Adm : Singleton<Torres_Adm>
 
     
 
-    public List<Torre_Obj> GetTorresInventory()
+    public List<Torre> GetTorresInventory()
     {
         return inventarioDeTorres;
     }

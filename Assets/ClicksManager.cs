@@ -43,7 +43,6 @@ public class ClicksManager : Singleton<ClicksManager>
     {
         if (!Clicked()) { obj = null; return false; }
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, layer);
-        // Does the ray intersect any objects excluding the player layer
         if (hit.collider)
         {
             obj = hit.collider.gameObject;
@@ -56,7 +55,26 @@ public class ClicksManager : Singleton<ClicksManager>
     {
         if (!Clicked()) return false;
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, layer);
-        // Does the ray intersect any objects excluding the player layer
+        if (hit.collider) return true;
+        return false;
+    }
+
+    public bool DoesCollideInLayer(LayerMask layer, LayerMask layerToPrevent)
+    {
+        if (!Clicked()) return false;
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, layer);
+        RaycastHit2D hitToPrevent = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, layerToPrevent);
+        if (hitToPrevent.collider) return false;
+        if (hit.collider) return true;
+        return false;
+    }
+
+    public bool DoesCollideInLayerOnGrid(LayerMask layer, LayerMask layerToPrevent)
+    {
+        if (!Clicked()) return false;
+        RaycastHit2D hit = Physics2D.Raycast((Vector3)GetMousePositionOnGrid(), Vector2.zero, 100, layer);
+        RaycastHit2D hitToPrevent = Physics2D.Raycast((Vector3)GetMousePositionOnGrid(), Vector2.zero, 100, layerToPrevent);
+        if (hitToPrevent.collider) return false;
         if (hit.collider) return true;
         return false;
     }
