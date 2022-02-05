@@ -250,10 +250,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2765285899213586430, guid: 75c060d9617015443a1168d11b400b90, type: 3}
-      propertyPath: _stats
-      value: 
-      objectReference: {fileID: 11400000, guid: 19e135da526eb594e988699e802782b4, type: 2}
-    - target: {fileID: -2765285899213586430, guid: 75c060d9617015443a1168d11b400b90, type: 3}
       propertyPath: caminho
       value: 
       objectReference: {fileID: 1303386374}
@@ -261,10 +257,6 @@ PrefabInstance:
       propertyPath: cenario
       value: 
       objectReference: {fileID: 1873697805}
-    - target: {fileID: -2765285899213586430, guid: 75c060d9617015443a1168d11b400b90, type: 3}
-      propertyPath: layersToAvoid.m_Bits
-      value: 3956
-      objectReference: {fileID: 0}
     - target: {fileID: 746993034347846878, guid: 75c060d9617015443a1168d11b400b90, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1668,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b697d8af3898d7f408d62f7f759bc9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dinheiroIni: 10
+  dinheiroIni: 20
   dinheiroText: {fileID: 1780815954}
 --- !u!114 &629585976
 MonoBehaviour:
@@ -2686,13 +2678,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 941065035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3db478178a97e43969e0466085bbf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d85de7239a856441828a7626d503a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimo: 0
-  maximo: 10
-  hpslider: {fileID: 0}
-  hpTexto: {fileID: 1237042796}
+  vidaConfig: {fileID: 629585976}
+  vidaSlider: {fileID: 941065037}
+  vidaText: {fileID: 1237042796}
+  configurado: 0
+  autoInitialize: 1
+  follow: {fileID: 0}
+  retries: 0
 --- !u!1 &975992505
 GameObject:
   m_ObjectHideFlags: 0
