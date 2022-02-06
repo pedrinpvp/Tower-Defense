@@ -15,6 +15,6 @@ MonoBehaviour:
   vida: 20
   dano: 3
   velocidade: 3
-  animation: {fileID: 9100000, guid: 71520415ba9d5bb47a85f1d010f8e93f, type: 2}
+  animatorOverride: {fileID: 22100000, guid: 79ce7ae5eb82f4f479685cb2af648bc8, type: 2}
   danoAoCastelo: 3
-  recompensa: 3
+  recompensa: 13

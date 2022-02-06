@@ -13,10 +13,7 @@ public class Char_Scr : ScriptableObject
     public float velocidade = 3;
 
     [Header("Animacoes do personagem")]
-    public AnimationClip idle;
-    public AnimationClip run;
-    public AnimationClip shoot;
-    public AnimationClip death;
+    public AnimatorOverrideController animatorOverride;
 
     private void OnValidate()
     {

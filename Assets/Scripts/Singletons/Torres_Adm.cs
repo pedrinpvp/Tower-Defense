@@ -12,7 +12,9 @@ public class Torres_Adm : Singleton<Torres_Adm>
     [SerializeField]
     private Tilemap torresTileMap = new Tilemap();
     [SerializeField]
-    private List<Torre> inventarioDeTorres = new List<Torre>();
+    private List<Torre_Scr> inventarioDeTorres = new List<Torre_Scr>();
+    [SerializeField]
+    private Torre torreObj;
     [SerializeField]
     private GameObject torresHolder;
     private Vector3Int previousMousePos = new Vector3Int();
@@ -55,15 +57,16 @@ public class Torres_Adm : Singleton<Torres_Adm>
         previousMousePos = mousePos;
     }
 
-    public void ColocarTorre(Vector3 pos, Torre torre)
+    public void ColocarTorre(Vector3 pos, Torre_Scr torre_Scr)
     {
         Vector3 newPos = new Vector3(pos.x, pos.y);
-        Instantiate(torre, newPos, Quaternion.identity, torresHolder.transform);
+        var newTower = Instantiate(torreObj, newPos, Quaternion.identity, torresHolder.transform);
+        newTower.Init(torre_Scr);
     }
 
     
 
-    public List<Torre> GetTorresInventory()
+    public List<Torre_Scr> GetTorresInventory()
     {
         return inventarioDeTorres;
     }

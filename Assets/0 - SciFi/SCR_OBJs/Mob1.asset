@@ -15,9 +15,6 @@ MonoBehaviour:
   vida: 10
   dano: 3
   velocidade: 10
-  idle: {fileID: 7400000, guid: 28f9289b0b809ed4c8e627333f50eb8c, type: 2}
-  run: {fileID: 7400000, guid: c1494aba416639f46954ae772112ed33, type: 2}
-  shoot: {fileID: 7400000, guid: 6e2c239e7da586048ba64bb44612a920, type: 2}
-  death: {fileID: 7400000, guid: 80636da728fdfd74a96cde23089b9588, type: 2}
+  animatorOverride: {fileID: 22100000, guid: 4321cbae26ca0a6418f8839c83162707, type: 2}
   danoAoCastelo: 3
   recompensa: 1

@@ -8,18 +8,30 @@ public class Char_Anim : MonoBehaviour
 {
     public AnimacoesBasicas animacoes = AnimacoesBasicas.Idle;
     protected Animator animator;
-    protected AnimatorOverrideController overrideController;
-
-
-    public void Init(AnimationClip idle, AnimationClip run, AnimationClip shoot, AnimationClip death)
+    public bool activate;
+    public void Init(AnimatorOverrideController overrideController)
     {
         animator = GetComponent<Animator>();
-        overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideController;
-        overrideController["Idle"] = idle;
-        overrideController["Run"] = run;
-        overrideController["Shoot"] = shoot;
-        overrideController["Death"] = death;
+    }
+    public void ChangeAnim(AnimacoesBasicas animacao)
+    {
+        animacoes = animacao;
+        foreach (var anim in animator.parameters)
+        {
+            //If matching names set parameter to true
+            animator.SetBool(anim.name, anim.name == animacao.ToString());
+        }
+        animator.SetBool(animacao.ToString(), true);
+    }
+
+    private void Update()
+    {
+        if (activate)
+        {
+            activate = false;
+            ChangeAnim(animacoes);
+        }
     }
 }
 

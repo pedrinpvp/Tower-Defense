@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ec01777ef8fd14fb62f54a1bc37df5, type: 3}
   m_Name: Sorvete
   m_EditorClassIdentifier: 
-  danoAoCastelo: 3
   vida: 10
-  recompensa: 1
+  dano: 3
   velocidade: 5
-  animation: {fileID: 9100000, guid: e16b65baaf9148d4eb6303221f32c5be, type: 2}
-  recurso: {fileID: 3874829238360703392, guid: a0f93bf35b0f1684a8fe06303da7fc49, type: 3}
+  animatorOverride: {fileID: 22100000, guid: e18927263ec09f3479f5863cba459488, type: 2}
+  danoAoCastelo: 3
+  recompensa: 5

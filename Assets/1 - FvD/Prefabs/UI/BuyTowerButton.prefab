@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7494319029147672151}
   - component: {fileID: 7494319029147672148}
   - component: {fileID: 1469483882274454834}
+  - component: {fileID: 520884876563569446}
   m_Layer: 5
   m_Name: BuyTowerButton
   m_TagString: Untagged
@@ -91,6 +92,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094e64ebd4e5fef41a09dedb9a6714cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
+  towerToBuy: {fileID: 0}
+  button: {fileID: 520884876563569446}
+  image: {fileID: 7494319029691238375}
+--- !u!114 &520884876563569446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494319029147672147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -119,12 +136,10 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 7494319029147672148}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  index: 0
-  towerToBuy: {fileID: 0}
 --- !u!1 &7494319029437209411
 GameObject:
   m_ObjectHideFlags: 0

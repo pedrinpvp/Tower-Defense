@@ -6,14 +6,13 @@ using UnityEngine;
 public class Torre_Anim : MonoBehaviour
 {
 
-    private Animator anim;
-    private SpriteRenderer spriteRend;
-    [SerializeField]
-    private Enums.Direcoes direcaoAtual;
-    private void Start()
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Enums.Direcoes direcaoAtual;
+
+    public void Init(AnimatorOverrideController overrideController)
     {
-        anim = GetComponent<Animator>();
-        spriteRend = GetComponent<SpriteRenderer>();
+        animator.runtimeAnimatorController = overrideController;
     }
 
     public void MudarAnimacao(Enums.Direcoes direcoes)
@@ -24,23 +23,23 @@ public class Torre_Anim : MonoBehaviour
             //Debug.Log(direcoes.ToString());
             if (direcoes == Enums.Direcoes.cima)
             {
-                anim.SetTrigger("Back");
-                spriteRend.flipX = false;
+                animator.SetTrigger("Back");
+                spriteRenderer.flipX = false;
             }
             if (direcoes == Enums.Direcoes.baixo)
             {
-                anim.SetTrigger("Front");
-                spriteRend.flipX = false;
+                animator.SetTrigger("Front");
+                spriteRenderer.flipX = false;
             }
             if (direcoes == Enums.Direcoes.direita)
             {
-                anim.SetTrigger("Side");
-                spriteRend.flipX = false;
+                animator.SetTrigger("Side");
+                spriteRenderer.flipX = false;
             }
             if (direcoes == Enums.Direcoes.esquerda)
             {
-                anim.SetTrigger("Side");
-                spriteRend.flipX = true;
+                animator.SetTrigger("Side");
+                spriteRenderer.flipX = true;
             }
         }
         

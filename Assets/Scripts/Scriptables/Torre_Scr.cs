@@ -18,6 +18,10 @@ public class Torre_Scr : ScriptableObject
     [Header("Bala utilizada.")]
     public Bala_Scr bala;
 
+    [Header("Visual")]
+    public Sprite sprite;
+    public AnimatorOverrideController animatorOverride;
+
     private void OnValidate()
     {
         nome = name;

@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class BuyTowerButton : Button
+public class BuyTowerButton : MonoBehaviour
 {
     public int index;
-    public Torre towerToBuy;
+    public Torre_Scr towerToBuy;
+    public Button button;
+    public Image image;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(index + " " + towerToBuy.name);
-        onClick.AddListener(BuyTower);
+        button.onClick.AddListener(BuyTower);
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        image.sprite = sprite;
     }
 
     public void ShowAnim()
@@ -23,7 +29,7 @@ public class BuyTowerButton : Button
     public void BuyTower()
     {
         print("BUY TOWER");
-        if(CasteloStats.GetInstance().CanAfford(towerToBuy.stats.custo))
+        if(CasteloStats.GetInstance().CanAfford(towerToBuy.custo))
             TowerSelection.GetInstance().Select(towerToBuy);
     }
 }

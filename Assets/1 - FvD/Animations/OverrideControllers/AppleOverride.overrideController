@@ -6,6 +6,6 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharOverride
-  m_Controller: {fileID: 0}
+  m_Name: AppleOverride
+  m_Controller: {fileID: 9100000, guid: 91cb31ed385bc2e4f96a096efc2e94f7, type: 2}
   m_Clips: []

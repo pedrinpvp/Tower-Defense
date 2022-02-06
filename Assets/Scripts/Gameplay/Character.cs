@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
     public VidaMedidor medidor;
     public int vida;
     private SpriteRenderer spr;
+    protected AILerp aiLerp;
+    protected Char_Anim anim;
     //TODO: Init overloading is a poor solution
     public virtual void Init(Char_Scr stats, int entrada)
     {
@@ -21,14 +23,17 @@ public class Character : MonoBehaviour
         minhaVida = GetComponent<VidaConfig>();
         medidor = GetComponent<VidaMedidor>();
         spr = GetComponent<SpriteRenderer>();
+        aiLerp = GetComponent<AILerp>();
+        anim = GetComponent<Char_Anim>();
         _stats = stats;
+        Debug.Log(_stats.name);
         vida = _stats.vida;
         minhaVida.vidaAtual = vida;
         minhaVida.vidaMax = vida;
         medidor.vidaConfig = minhaVida;
         medidor.follow = gameObject;
-        GetComponent<AILerp>().speed = FormatarVelocidade(_stats.velocidade);
-        GetComponent<Char_Anim>().Init(_stats.idle, _stats.run, _stats.shoot, _stats.death);
+        aiLerp.speed = FormatarVelocidade(_stats.velocidade);
+        anim.Init(_stats.animatorOverride);
     }
 
     public void InitializeCanva()
@@ -41,7 +46,7 @@ public class Character : MonoBehaviour
         return velocidade /= 4; 
     }
 
-    private void Update()
+    protected virtual void LifeCheck()
     {
         if (_stats != null)
         {
@@ -53,12 +58,12 @@ public class Character : MonoBehaviour
         }
     }
 
-    internal virtual void ValidarVida()
+    protected virtual void ValidarVida()
     {
         if (minhaVida != null) minhaVida.vidaAtual = vida;
     }
 
-    internal virtual void NaDestruicao()
+    protected virtual void NaDestruicao()
     {
         Destroy(gameObject);
     }

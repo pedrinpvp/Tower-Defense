@@ -13,7 +13,7 @@ public class TowerSelection : Singleton<TowerSelection>
     [SerializeField]
     private List<BuyTowerButton> buttonsInScene = new List<BuyTowerButton>();
     [SerializeField]
-    private List<Torre> torres = new List<Torre>();
+    private List<Torre_Scr> torres = new List<Torre_Scr>();
     // Start is called before the first frame update
     void Start()
     {
@@ -26,15 +26,16 @@ public class TowerSelection : Singleton<TowerSelection>
 
     }
 
-    private void GenerateButonsForScene(List<Torre> torre_Objs)
+    private void GenerateButonsForScene(List<Torre_Scr> torre_Scrs)
     {
-        for (int i = 0; i < torre_Objs.Count; i++)
+        for (int i = 0; i < torre_Scrs.Count; i++)
         {
             buttonsInScene.Add(Instantiate(buyTowerButton, transform));
-            torres.Add(torre_Objs[i]);
-            buttonsInScene[i].towerToBuy = torre_Objs[i];
+            torres.Add(torre_Scrs[i]);
+            buttonsInScene[i].towerToBuy = torre_Scrs[i];
             buttonsInScene[i].index = i;
-            buttonsInScene[i].onClick.AddListener(transform.parent.GetComponent<UIScreen>().CloseScreen);
+            buttonsInScene[i].button.onClick.AddListener(transform.parent.GetComponent<UIScreen>().CloseScreen);
+            buttonsInScene[i].SetSprite(torre_Scrs[i].sprite);
         }
     }
 
@@ -49,9 +50,9 @@ public class TowerSelection : Singleton<TowerSelection>
 
     }
 
-    public void Select(Torre torre_Obj)
+    public void Select(Torre_Scr torre_Scr)
     {
-        Torres_Adm.GetInstance().ColocarTorre(storedMousPos, torre_Obj);
+        Torres_Adm.GetInstance().ColocarTorre(storedMousPos, torre_Scr);
     }
 
     internal void StorePosition(Vector3 mousePos)

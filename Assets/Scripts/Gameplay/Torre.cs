@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Torre : MonoBehaviour
 {
-    public Torre_Scr stats;
+    public Torre_Scr _stats;
     public Bala balaPrefab;
-    private Torre_Anim animLoader;
-    private GameObject spriteHolder;
+    [SerializeField] private Torre_Anim animLoader;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private CircleCollider2D colisorCirculo;
     public List<Transform> inimigos = new List<Transform>();
     public Transform inimigoMaisPerto;
@@ -18,10 +18,17 @@ public class Torre : MonoBehaviour
 
     void Start()
     {
-        spriteHolder = GetComponentInChildren<SpriteRenderer>().gameObject;
         colisorCirculo = GetComponent<CircleCollider2D>();
-        animLoader = spriteHolder.GetComponent<Torre_Anim>();
         colisorCirculo.radius = alcance/2;
+    }
+
+    public void Init(Torre_Scr stats)
+    {
+        _stats = stats;
+        spriteRenderer.sprite = _stats.sprite;
+        Debug.LogWarning($"I'm {_stats.name} and my animator is {_stats.animatorOverride.name}");
+        animLoader.Init(_stats.animatorOverride);
+        alcance = _stats.alcance;
     }
 
     void Update()
@@ -47,15 +54,6 @@ public class Torre : MonoBehaviour
         
     }
 
-
-    private void OnValidate()
-    {
-        DefinirAlcance();
-    }
-    private void DefinirAlcance()
-    {
-        alcance = stats.alcance;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -114,13 +112,13 @@ public class Torre : MonoBehaviour
         if (!cooldown)
         {
             Debug.Log("Atirar");
-            var bala = Instantiate(balaPrefab, spriteHolder.transform.position, spriteHolder.transform.rotation);
-            if (inimigoMaisPerto != null) bala.Init(stats.bala, inimigoMaisPerto, stats.velocidadeBala, stats.dano);
-            bala.gameObject.name = stats.bala.name;
+            var bala = Instantiate(balaPrefab, spriteRenderer.transform.position, spriteRenderer.transform.rotation);
+            if (inimigoMaisPerto != null) bala.Init(_stats.bala, inimigoMaisPerto, _stats.velocidadeBala, _stats.dano);
+            bala.gameObject.name = _stats.bala.name;
             cooldown = true;
-            yield return new WaitForSeconds(1 / stats.cadencia);
+            yield return new WaitForSeconds(1 / _stats.cadencia);
         }
-        else yield return new WaitForSeconds(1 / stats.cadencia / 2);
+        else yield return new WaitForSeconds(1 / _stats.cadencia / 2);
         cooldown = false;
         if (inimigoAtual == inimigoMaisPerto && inimigoMaisPerto != null) StartCoroutine(AtirarNoInimigo());
     }

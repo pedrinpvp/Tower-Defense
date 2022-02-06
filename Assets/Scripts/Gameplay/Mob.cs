@@ -13,8 +13,9 @@ public class Mob : Character
 
     public override void Init(Char_Scr stats, int entrada)
     {
+        this.stats = stats as Mob_Scr;
         base.Init(stats, entrada);
-        stats = _stats as Mob_Scr;
+        Debug.Log($"stats: {stats}, _stats: {_stats}, this.stats: {this.stats}");
         resourcesManager = FindObjectOfType<ResourcesManager>().GetComponent<ResourcesManager>();
         vidaConfigCastelo = FindObjectOfType<CasteloStats>().GetComponent<VidaConfig>();
         GetComponent<AIDestinationSetter>().target = FindObjectOfType<Entrada>().transform.parent.GetChild(entrada);
@@ -27,9 +28,10 @@ public class Mob : Character
         {
             CausarDanoAoCastelo(); Destroy(gameObject);
         }
+        LifeCheck();
     }
 
-    internal override void NaDestruicao()
+    protected override void NaDestruicao()
     {
         base.NaDestruicao();
         SpawnRecompensa();

@@ -351,6 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5840804754965549139}
   - component: {fileID: -2765285899213586430}
+  - component: {fileID: 3042058339233227489}
   - component: {fileID: 5840804754965549484}
   - component: {fileID: 5840804754965549143}
   - component: {fileID: 5840804754965549485}
@@ -404,10 +405,25 @@ MonoBehaviour:
   caminho: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 4224
+    m_Bits: 1152
   layersToAvoid:
     serializedVersion: 2
-    m_Bits: 3956
+    m_Bits: 7028
+  remainingDistance: 0
+--- !u!114 &3042058339233227489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840804754965549487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88501e5cf078844c838a0e354c0d4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animacoes: 0
+  activate: 0
 --- !u!114 &5840804754965549484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +679,7 @@ Animator:
   m_GameObject: {fileID: 5840804754965549487}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3f3da6a32cb9a344b111b6d8fba8f15, type: 2}
+  m_Controller: {fileID: 9100000, guid: cdce89df9320df74981bda5a544705e6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
