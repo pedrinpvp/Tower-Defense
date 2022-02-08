@@ -15,9 +15,9 @@ TagManager:
   - Caminho
   - Entradas
   - Saidas
+  - Cenario
+  - Recursos
   - Torre
-  - 
-  - 
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Canvas
     uniqueID: 1759537259
+    locked: 0
+  - name: AcimaDeCanvas
+    uniqueID: 2638123723
     locked: 0

@@ -9622,8 +9622,8 @@ MonoBehaviour:
   grid: {fileID: 1827115880}
   torresTileMap: {fileID: 263067806}
   inventarioDeTorres:
-  - {fileID: 4676387175501003936, guid: e1017ef9c19252242a6a6a6e8deaf0b5, type: 3}
-  - {fileID: 4676387175501003936, guid: e1017ef9c19252242a6a6a6e8deaf0b5, type: 3}
+  - {fileID: 11400000, guid: c8a5cba6f31743a409b69569651b3c39, type: 2}
+  torreObj: {fileID: 1495429476197793231, guid: 063930fa01466f749bb628f6f8b3603e, type: 3}
   torresHolder: {fileID: 4434594152009488194}
   towerSelection: {fileID: 1207621161}
   layer:
