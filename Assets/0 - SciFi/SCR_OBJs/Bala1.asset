@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ec01777ef8fd14fb62f54a1bc37df5, type: 3}
-  m_Name: Mob2
+  m_Script: {fileID: 11500000, guid: ecaa5d9ecde49744b95a68cfa9bfab5c, type: 3}
+  m_Name: Bala1
   m_EditorClassIdentifier: 
-  vida: 30
-  dano: 3
-  velocidade: 7
-  animatorOverride: {fileID: 22100000, guid: 1f3e9f6be54de724bbccff81200921b7, type: 2}
-  danoAoCastelo: 3
-  recompensa: 1
+  tipoDeMunicao: 1
+  tipoDeDano: 0
+  numDeBalas: 1
+  multitarget: 0
+  AOE: 0.5
+  imagem: {fileID: 0}

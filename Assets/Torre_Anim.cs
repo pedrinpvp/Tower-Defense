@@ -2,47 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using static Enums;
 
 public class Torre_Anim : MonoBehaviour
 {
 
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Enums.Direcoes direcaoAtual;
+    [SerializeField] private Direcoes direcaoAtual;
+    [SerializeField] private AnimacoesBasicas animacoes = AnimacoesBasicas.Idle;
 
     public void Init(AnimatorOverrideController overrideController)
     {
         animator.runtimeAnimatorController = overrideController;
     }
 
-    public void MudarAnimacao(Enums.Direcoes direcoes)
+    public void MudarDirecao(Direcoes direcao)
     {
-        if (direcaoAtual != direcoes)
+        if (direcaoAtual != direcao)
         {
-            direcaoAtual = direcoes;
+            direcaoAtual = direcao;
             //Debug.Log(direcoes.ToString());
-            if (direcoes == Enums.Direcoes.cima)
+            if (direcao == Direcoes.cima)
             {
                 animator.SetTrigger("Back");
                 spriteRenderer.flipX = false;
             }
-            if (direcoes == Enums.Direcoes.baixo)
+            if (direcao == Direcoes.baixo)
             {
                 animator.SetTrigger("Front");
                 spriteRenderer.flipX = false;
             }
-            if (direcoes == Enums.Direcoes.direita)
+            if (direcao == Direcoes.direita)
             {
                 animator.SetTrigger("Side");
                 spriteRenderer.flipX = false;
             }
-            if (direcoes == Enums.Direcoes.esquerda)
+            if (direcao == Direcoes.esquerda)
             {
                 animator.SetTrigger("Side");
                 spriteRenderer.flipX = true;
             }
         }
         
+    }
+
+    public void MudarEstado(AnimacoesBasicas estado)
+    {
+        animacoes = estado;
+        foreach (var anim in animator.parameters)
+        {
+            //If matching names set parameter to true
+            animator.SetBool(anim.name, anim.name == estado.ToString());
+        }
+        animator.SetBool(estado.ToString(), true);
     }
 
     public void MoverComInimigo(Transform inimigoMaisPerto)
@@ -68,30 +81,30 @@ public class Torre_Anim : MonoBehaviour
         {
             if (angle < 30)
             {
-                MudarAnimacao(Enums.Direcoes.direita);
+                MudarDirecao(Direcoes.direita);
             }
             else if (angle < 120 && angle > 60)
             {
-                MudarAnimacao(Enums.Direcoes.cima);
+                MudarDirecao(Direcoes.cima);
             }
             else if (angle > 150)
             {
-                MudarAnimacao(Enums.Direcoes.esquerda);
+                MudarDirecao(Direcoes.esquerda);
             }
         }
         else if (angle < 0)
         {
             if (angle > -30)
             {
-                MudarAnimacao(Enums.Direcoes.direita);
+                MudarDirecao(Direcoes.direita);
             }
             else if (angle > -120 && angle < -60)
             {
-                MudarAnimacao(Enums.Direcoes.baixo);
+                MudarDirecao(Direcoes.baixo);
             }
             else if (angle < -150)
             {
-                MudarAnimacao(Enums.Direcoes.esquerda);
+                MudarDirecao(Direcoes.esquerda);
             }
         }
     }

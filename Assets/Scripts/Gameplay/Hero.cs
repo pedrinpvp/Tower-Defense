@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static Enums;
 
 public class Hero : Character
 {
     AIDestinationSetter destinationSetter;
     ClicksManager clicksManager;
-    GameObject temp;
-    public Tilemap cenario, caminho;
+    GameObject destination;
     [SerializeField] LayerMask layer;
     [SerializeField] LayerMask layersToAvoid;
     private Hero_Scr stats;
@@ -29,18 +29,39 @@ public class Hero : Character
     void Update()
     {
         if (!clicksManager.Clicked()) return;
-        if (!temp) { temp = new GameObject(); temp.name = "hero destination"; BoxCollider2D bc = temp.AddComponent<BoxCollider2D>(); bc.isTrigger = true; bc.size = new Vector2(.3f, .3f); }
+        if (!destination) 
+        { 
+            destination = new GameObject(); 
+            destination.name = "hero destination"; 
+            BoxCollider2D bc = destination.AddComponent<BoxCollider2D>(); 
+            bc.isTrigger = true; 
+            bc.size = new Vector2(.3f, .3f); 
+        }
         if (clicksManager.DoesCollideInLayerOnGrid(layer, layersToAvoid))
         {
             Vector3 mouseWorldPos = clicksManager.GetMousePosition();
-            temp.transform.position = mouseWorldPos;
-            destinationSetter.target = temp.transform;
+            destination.transform.position = mouseWorldPos;
+            destinationSetter.target = destination.transform;
         }
-        if (temp) FliparDeAcordoComTarget(temp.transform);
-        //if (aiLerp.) anim.ChangeAnim(AnimacoesBasicas.Idle);
-        //else if (aiLerp.remainingDistance > .5f)anim.ChangeAnim(AnimacoesBasicas.Run);
-        
+        if (destination) FliparDeAcordoComTarget(destination.transform);
+
         remainingDistance = aiLerp.remainingDistance;
         LifeCheck();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.name == "hero destination")
+        {
+            anim.ChangeAnim(AnimacoesBasicas.Idle);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.name == "hero destination")
+        {
+            anim.ChangeAnim(AnimacoesBasicas.Run);
+        }
     }
 }

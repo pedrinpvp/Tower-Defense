@@ -12,6 +12,14 @@ public class Enums : MonoBehaviour
         direita
     }
 
+    public enum AnimacoesBasicas
+    {
+        Idle,
+        Run,
+        Shoot,
+        Death
+    }
+
     public enum TipoDeDano 
     {
         Fisico,

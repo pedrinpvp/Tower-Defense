@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8621163d32d7b404788493cf574da780, type: 3}
   m_Name: Hero1
   m_EditorClassIdentifier: 
-  vida: 30
-  dano: 4
-  velocidade: 5
+  vida: 100
+  dano: 3
+  velocidade: 20
   animatorOverride: {fileID: 22100000, guid: e5a9097246fb04a4bafcb45bee0706f1, type: 2}
+  regenPS: 5

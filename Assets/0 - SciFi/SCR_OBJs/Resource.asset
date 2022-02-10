@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ec01777ef8fd14fb62f54a1bc37df5, type: 3}
-  m_Name: Mob2
+  m_Script: {fileID: 11500000, guid: 335564cde6bb985419e6688790179fde, type: 3}
+  m_Name: Resource
   m_EditorClassIdentifier: 
-  vida: 30
-  dano: 3
-  velocidade: 7
-  animatorOverride: {fileID: 22100000, guid: 1f3e9f6be54de724bbccff81200921b7, type: 2}
-  danoAoCastelo: 3
-  recompensa: 1
+  amount: 1
+  sprite: {fileID: 21300000, guid: 8068fda4fc50b27449b529571e8c55b4, type: 3}

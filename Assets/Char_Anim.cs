@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using static Enums;
 
 public class Char_Anim : MonoBehaviour
 {
@@ -24,22 +25,5 @@ public class Char_Anim : MonoBehaviour
         }
         animator.SetBool(animacao.ToString(), true);
     }
-
-    private void Update()
-    {
-        if (activate)
-        {
-            activate = false;
-            ChangeAnim(animacoes);
-        }
-    }
-}
-
-public enum AnimacoesBasicas 
-{
-    Idle,
-    Run,
-    Shoot,
-    Death
 }
 

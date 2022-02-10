@@ -50,6 +50,10 @@ public class Torre : MonoBehaviour
             {
                 animLoader.MoverComInimigo(inimigoMaisPerto);
             }
+            else
+            {
+                animLoader.MudarEstado(Enums.AnimacoesBasicas.Idle);
+            }
         }
         
     }
@@ -112,13 +116,17 @@ public class Torre : MonoBehaviour
         if (!cooldown)
         {
             Debug.Log("Atirar");
+            animLoader.MudarEstado(Enums.AnimacoesBasicas.Shoot);
             var bala = Instantiate(balaPrefab, spriteRenderer.transform.position, spriteRenderer.transform.rotation);
             if (inimigoMaisPerto != null) bala.Init(_stats.bala, inimigoMaisPerto, _stats.velocidadeBala, _stats.dano);
             bala.gameObject.name = _stats.bala.name;
             cooldown = true;
             yield return new WaitForSeconds(1 / _stats.cadencia);
         }
-        else yield return new WaitForSeconds(1 / _stats.cadencia / 2);
+        else
+        {
+            yield return new WaitForSeconds(1 / _stats.cadencia / 2);
+        }
         cooldown = false;
         if (inimigoAtual == inimigoMaisPerto && inimigoMaisPerto != null) StartCoroutine(AtirarNoInimigo());
     }

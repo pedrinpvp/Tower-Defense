@@ -401,11 +401,9 @@ MonoBehaviour:
   minhaVida: {fileID: 0}
   medidor: {fileID: 0}
   vida: 0
-  cenario: {fileID: 0}
-  caminho: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 0
   layersToAvoid:
     serializedVersion: 2
     m_Bits: 7028
