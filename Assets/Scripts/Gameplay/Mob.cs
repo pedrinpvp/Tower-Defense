@@ -24,11 +24,12 @@ public class Mob : Character
     }
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _entrada.position) < 0.001f)
+        if (Vector2.Distance(transform.position, _entrada.position) < 0.001f)
         {
-            CausarDanoAoCastelo(); Destroy(gameObject);
+            CausarDanoAoCastelo();
+            Destroy(gameObject);
         }
-        LifeCheck();
+            LifeCheck();
     }
 
     protected override void NaDestruicao()
