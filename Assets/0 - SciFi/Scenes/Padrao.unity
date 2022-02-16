@@ -2795,7 +2795,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
     tempoMobs: 0.5
     entrada: 0
-  tempoProximaWave: 2.1
+  tempoProximaWave: 3
 --- !u!4 &1084193455
 Transform:
   m_ObjectHideFlags: 0
@@ -3737,6 +3737,68 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1094543612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094543613}
+  - component: {fileID: 1094543614}
+  m_Layer: 0
+  m_Name: Onda3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094543613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094543612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1918360478}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1094543614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094543612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb4c1b6a56644f41982faf4e3351856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inimigosPorSaida:
+  - Saida: {fileID: 1135307891}
+    Mobs:
+    - {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+    - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
+    - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
+    - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
+    - {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+    - {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+    - {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+    - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
+    - {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+    - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
+    - {fileID: 11400000, guid: dcdab07b981bd414d9953b3678da45c7, type: 2}
+    - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
+    tempoMobs: 0.7
+    entrada: 0
+  tempoProximaWave: 2.1
 --- !u!1 &1102149213
 GameObject:
   m_ObjectHideFlags: 0
@@ -8142,6 +8204,7 @@ Transform:
   m_Children:
   - {fileID: 1084193455}
   - {fileID: 1972021681}
+  - {fileID: 1094543613}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8488,7 +8551,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b14c70a40e890a1469b223aac1f55646, type: 2}
     tempoMobs: 0.5
     entrada: 0
-  tempoProximaWave: 2.1
+  tempoProximaWave: 4
 --- !u!1 &2010860405
 GameObject:
   m_ObjectHideFlags: 0

@@ -110,7 +110,8 @@ public class Ondas_Adm : Singleton<Ondas_Adm>
 
     private void RegistrarVitória()
     {
-        gameManager.UpdateGameState(GameState.Victory);
+        if (gameManager.State != GameState.Lose)
+            gameManager.UpdateGameState(GameState.Victory);
         venceu = true;
     }
 }

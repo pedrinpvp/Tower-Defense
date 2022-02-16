@@ -34,6 +34,7 @@ public class GameManager : Singleton<GameManager>
                 HandleVictory();
                 break;
             case GameState.Lose:
+                HandleDefeat();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -42,9 +43,21 @@ public class GameManager : Singleton<GameManager>
         OnGameStateChanged?.Invoke(newState); //Has anybody subscribed? Invoke this function.
     }
 
+    private void HandleDefeat()
+    {
+        Debug.Log("DEFEAT");
+        var reiniciador = FindObjectOfType<Reiniciador>(true);
+        reiniciador.gameObject.SetActive(true);
+        reiniciador.AvisarDerrota();
+    }
+
     private void HandleVictory()
     {
         Debug.Log("VICTORY");
+        var reiniciador = FindObjectOfType<Reiniciador>(true);
+        reiniciador.gameObject.SetActive(true);
+        reiniciador.AvisarVitoria();
+
     }
 
     private void HandleStartWave()

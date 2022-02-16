@@ -28,7 +28,8 @@ public class CasteloStats : Singleton<CasteloStats>
     {
         if (vidaCastelo.vidaAtual <= 0)
         {
-            GameManager.GetInstance().UpdateGameState(GameState.Lose);
+            if (GameManager.GetInstance().State != GameState.Victory)
+                GameManager.GetInstance().UpdateGameState(GameState.Lose);
         }
     }
 
