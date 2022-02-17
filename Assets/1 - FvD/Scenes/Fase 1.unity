@@ -504,10 +504,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1876121101}
+  - {fileID: 1444089865}
   - {fileID: 1357020006}
   - {fileID: 1059934233}
-  - {fileID: 1444089865}
+  - {fileID: 1876121101}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -526,10 +526,10 @@ MonoBehaviour:
   inimigoPrefab: {fileID: 5840804754965549138, guid: bb4c6943a662e1f45910bf3dc84fa00b, type: 3}
   gameManager: {fileID: 0}
   ondas:
-  - {fileID: 1876121102}
+  - {fileID: 1444089864}
   - {fileID: 1357020007}
   - {fileID: 1059934232}
-  - {fileID: 1444089864}
+  - {fileID: 1876121102}
   chamarWave: {fileID: 1087001341}
   waveControlUI: {fileID: 2102322245}
   turno: 0
@@ -3721,7 +3721,7 @@ Tilemap:
       - {fileID: 7615464254964553805, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: -759994075976635497, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: -8172479815033446203, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 4, y: 7, z: 0}
@@ -3961,7 +3961,7 @@ Tilemap:
       - {fileID: -7273706171862157758, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: 544673972303284974, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: 2674346146460511964, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -8, y: 15, z: 0}
@@ -3991,7 +3991,7 @@ Tilemap:
       - {fileID: -7273706171862157758, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: 544673972303284974, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: 2674346146460511964, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -5, y: 15, z: 0}
@@ -4001,7 +4001,7 @@ Tilemap:
       - {fileID: -7273706171862157758, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: 544673972303284974, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: 2674346146460511964, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -4, y: 15, z: 0}
@@ -6732,7 +6732,7 @@ GameObject:
   - component: {fileID: 1444089865}
   - component: {fileID: 1444089864}
   m_Layer: 0
-  m_Name: Onda4
+  m_Name: Onda1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6771,7 +6771,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 180469510}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1505389342
 GameObject:
@@ -10620,7 +10620,7 @@ Tilemap:
       - {fileID: 7615464254964553805, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: -759994075976635497, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
       - {fileID: -8172479815033446203, guid: c989ddc9e920e1045906fc90e97f5dd8, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 4, y: 7, z: 0}
@@ -11726,7 +11726,7 @@ GameObject:
   - component: {fileID: 1876121101}
   - component: {fileID: 1876121102}
   m_Layer: 0
-  m_Name: Onda1
+  m_Name: Onda4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11745,7 +11745,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 180469510}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1876121102
 MonoBehaviour:

@@ -21,6 +21,7 @@ public class Torre_Scr : ScriptableObject
     [Header("Visual")]
     public Sprite sprite;
     public AnimatorOverrideController animatorOverride;
+    public Sprite staticSprite;
 
     private void OnValidate()
     {

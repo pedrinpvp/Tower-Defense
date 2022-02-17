@@ -27,7 +27,11 @@ public class Torre : MonoBehaviour
         _stats = stats;
         spriteRenderer.sprite = _stats.sprite;
         Debug.LogWarning($"I'm {_stats.name} and my animator is {_stats.animatorOverride.name}");
-        animLoader.Init(_stats.animatorOverride);
+
+        if (_stats.staticSprite != null) 
+            animLoader.Init(_stats.animatorOverride, _stats.staticSprite);
+        else 
+            animLoader.Init(_stats.animatorOverride);
         alcance = _stats.alcance;
     }
 
@@ -50,12 +54,15 @@ public class Torre : MonoBehaviour
             {
                 animLoader.MoverComInimigo(inimigoMaisPerto);
             }
-            else
-            {
-                animLoader.MudarEstado(Enums.AnimacoesBasicas.Idle);
-            }
         }
-        
+        else
+        {
+            inimigoMaisPerto = null;
+        }
+
+        if(inimigoMaisPerto == null)
+            animLoader.MudarEstado(Enums.AnimacoesBasicas.Idle);
+
     }
 
 

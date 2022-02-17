@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using static Enums;
 
@@ -15,6 +14,13 @@ public class Torre_Anim : MonoBehaviour
     public void Init(AnimatorOverrideController overrideController)
     {
         animator.runtimeAnimatorController = overrideController;
+    }
+
+    public void Init(AnimatorOverrideController overrideController, Sprite staticSprite)
+    {
+        animator.runtimeAnimatorController = overrideController;
+        var _staticSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _staticSprite.sprite = staticSprite;
     }
 
     public void MudarDirecao(Direcoes direcao)

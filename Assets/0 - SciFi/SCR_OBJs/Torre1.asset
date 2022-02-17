@@ -21,3 +21,4 @@ MonoBehaviour:
   bala: {fileID: 11400000, guid: 0930c9caa97581140b4f7cfe4e0d52c1, type: 2}
   sprite: {fileID: -653235566, guid: 7c2de3af15c90b141863680a1c5e2618, type: 3}
   animatorOverride: {fileID: 22100000, guid: 9e3e03c7be7f15d4b8a29535aca2d4b2, type: 2}
+  staticSprite: {fileID: 753717564, guid: 7c2de3af15c90b141863680a1c5e2618, type: 3}
