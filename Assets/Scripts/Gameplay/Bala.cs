@@ -58,6 +58,7 @@ public class Bala : MonoBehaviour
         
     }
 
+    //TODO: Change
     private void ShootArea()
     {
         transform.position = Vector3.MoveTowards(transform.position, staticLocation, _velocidade * Time.deltaTime);

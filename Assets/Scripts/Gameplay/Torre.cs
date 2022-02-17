@@ -87,6 +87,7 @@ public class Torre : MonoBehaviour
             }
         }
     }
+
     Transform EncontrarMaisPerto()
     {
         Transform bestTarget = null;
@@ -115,7 +116,6 @@ public class Torre : MonoBehaviour
         }
         
     }
-
 
     IEnumerator AtirarNoInimigo()
     {
