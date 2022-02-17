@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 388006303398198505}
   - component: {fileID: 4094334411011711040}
   - component: {fileID: 2484786228092005988}
+  - component: {fileID: 3165451153436698902}
   m_Layer: 0
   m_Name: IA_Hero
   m_TagString: Untagged
@@ -408,6 +409,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7028
   remainingDistance: 0
+  inimigos: []
+  inimigoMaisPerto: {fileID: 0}
+  alcance: 0
+  cooldown: 0
 --- !u!114 &3042058339233227489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +692,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &3165451153436698902
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840804754965549487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &6510160899067569235
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,3 +17,5 @@ MonoBehaviour:
   velocidade: 20
   animatorOverride: {fileID: 22100000, guid: e5a9097246fb04a4bafcb45bee0706f1, type: 2}
   regenPS: 5
+  alcance: 5
+  cadencia: 5

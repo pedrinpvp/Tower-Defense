@@ -2,6 +2,7 @@ using Pathfinding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Enums;
@@ -23,6 +24,7 @@ public class Hero : Character
     public List<Transform> inimigos = new List<Transform>();
     public Transform inimigoMaisPerto;
     [SerializeField] private float alcance;
+    [SerializeField] private float cadencia;
     public bool cooldown;
     #endregion
 
@@ -33,10 +35,38 @@ public class Hero : Character
         layersToAvoid = ~layer;
         clicksManager = ClicksManager.GetInstance();
         destinationSetter = GetComponent<AIDestinationSetter>();
+        alcance = stats.alcance;
+        cadencia = stats.cadencia;
+        colisorCirculo = GetComponent<CircleCollider2D>();
+        colisorCirculo.radius = alcance / 2;
     }
 
     void Update()
     {
+        #region Shooting
+        if (inimigos.Any())
+        {
+            //if (inimigoMaisPerto != null) Debug.Log(gameObject.name + " " + inimigoMaisPerto.name);
+            //foreach (var inimigo in inimigos)
+            //{
+            //    Debug.Log(gameObject.name + " " + inimigo.name);
+            //}
+            if (!inimigos.Contains(inimigoMaisPerto))
+            {
+                inimigoMaisPerto = EncontrarMaisPerto();
+                if (inimigoMaisPerto != null)
+                    StartCoroutine(AtirarNoInimigo());
+            }
+        }
+        else
+        {
+            inimigoMaisPerto = null;
+        }
+
+        if (inimigoMaisPerto == null)
+            anim.ChangeAnim(Enums.AnimacoesBasicas.Idle);
+        #endregion
+
         #region Walking
         if (!clicksManager.Clicked()) return;
         if (!destination) 
@@ -57,10 +87,8 @@ public class Hero : Character
 
         remainingDistance = aiLerp.remainingDistance;
         #endregion
-        LifeCheck();
-        #region Shooting
 
-        #endregion
+        LifeCheck();
 
     }
 
@@ -135,11 +163,11 @@ public class Hero : Character
             anim.ChangeAnim(Enums.AnimacoesBasicas.Shoot);
             inimigoMaisPerto.GetComponent<Mob>().vida -= _stats.dano;
             cooldown = true;
-            yield return new WaitForSeconds(1 / _stats.cadencia);
+            yield return new WaitForSeconds(1 / cadencia);
         }
         else
         {
-            yield return new WaitForSeconds(1 / _stats.cadencia / 2);
+            yield return new WaitForSeconds(1 / cadencia / 2);
         }
         cooldown = false;
         if (inimigoAtual == inimigoMaisPerto && inimigoMaisPerto != null) StartCoroutine(AtirarNoInimigo());
