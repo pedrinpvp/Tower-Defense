@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 1
   custo: 5
-  alcance: 8
-  cadencia: 8
+  alcance: 7
+  cadencia: 7
   critChance: 1
   velocidadeBala: 15
   bala: {fileID: 11400000, guid: 0930c9caa97581140b4f7cfe4e0d52c1, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ec01777ef8fd14fb62f54a1bc37df5, type: 3}
   m_Name: Mob1
   m_EditorClassIdentifier: 
-  vida: 10
+  vida: 12
   dano: 3
   velocidade: 10
   animatorOverride: {fileID: 22100000, guid: 4321cbae26ca0a6418f8839c83162707, type: 2}
