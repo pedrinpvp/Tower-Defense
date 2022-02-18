@@ -391,14 +391,6 @@ PrefabInstance:
       propertyPath: cenario
       value: 
       objectReference: {fileID: 1873697805}
-    - target: {fileID: -2765285899213586430, guid: 75c060d9617015443a1168d11b400b90, type: 3}
-      propertyPath: layer.m_Bits
-      value: 8151
-      objectReference: {fileID: 0}
-    - target: {fileID: -2765285899213586430, guid: 75c060d9617015443a1168d11b400b90, type: 3}
-      propertyPath: layersToAvoid.m_Bits
-      value: 32
-      objectReference: {fileID: 0}
     - target: {fileID: 746993034347846878, guid: 75c060d9617015443a1168d11b400b90, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
