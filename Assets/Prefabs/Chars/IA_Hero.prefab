@@ -404,14 +404,15 @@ MonoBehaviour:
   vida: 0
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8151
   layersToAvoid:
     serializedVersion: 2
-    m_Bits: 7028
+    m_Bits: 32
   remainingDistance: 0
   inimigos: []
   inimigoMaisPerto: {fileID: 0}
   alcance: 0
+  cadencia: 0
   cooldown: 0
 --- !u!114 &3042058339233227489
 MonoBehaviour:
